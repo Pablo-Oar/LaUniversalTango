@@ -1,11 +1,12 @@
 import Link from "next/link"
 import Image from "next/image"
+import { withBasePath } from "@/lib/basePath"
 
 export default function Hero() {
   return (
     <section className="relative min-h-[85vh] flex items-center overflow-hidden">
       <Image
-        src="/images/hero/grupo-principal.jpg"
+        src={withBasePath("/images/hero/grupo-principal.jpg")}
         alt="La Universal Tango en vivo"
         fill
         priority

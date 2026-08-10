@@ -5,6 +5,7 @@ import Image from "next/image"
 import { useState } from "react"
 import { GALLERY_PHOTOS } from "@/data/gallery"
 import Lightbox from "@/components/gallery/Lightbox"
+import { withBasePath } from "@/lib/basePath"
 
 export default function GalleryPreview() {
   const photos = GALLERY_PHOTOS.slice(0, 8)
@@ -27,7 +28,7 @@ export default function GalleryPreview() {
               style={{ backgroundColor: "#1C2D78" }}
             >
               <Image
-                src={photo.src}
+                src={withBasePath(photo.src)}
                 alt={photo.title}
                 fill
                 sizes="(max-width: 768px) 50vw, 25vw"

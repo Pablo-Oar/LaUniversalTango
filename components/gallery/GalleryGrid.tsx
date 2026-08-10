@@ -4,6 +4,7 @@ import Image from "next/image"
 import { useState } from "react"
 import { GALLERY_PHOTOS, GalleryCategory } from "@/data/gallery"
 import Lightbox from "@/components/gallery/Lightbox"
+import { withBasePath } from "@/lib/basePath"
 
 const CATEGORIES: { key: GalleryCategory | "todos"; label: string }[] = [
   { key: "todos", label: "Todos" },
@@ -57,7 +58,7 @@ export default function GalleryGrid() {
               style={{ backgroundColor: "#1C2D78" }}
             >
               <Image
-                src={photo.src}
+                src={withBasePath(photo.src)}
                 alt={photo.title}
                 fill
                 sizes="(max-width: 768px) 50vw, 25vw"

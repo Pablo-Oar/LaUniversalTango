@@ -2,6 +2,7 @@
 
 import Image from "next/image"
 import { useEffect } from "react"
+import { withBasePath } from "@/lib/basePath"
 
 export type LightboxItem = {
   src: string
@@ -96,7 +97,7 @@ export default function Lightbox({ items, index, onClose, onPrev, onNext }: Prop
         onClick={(e) => e.stopPropagation()}
       >
         <Image
-          src={active.src}
+          src={withBasePath(active.src)}
           alt={active.title}
           fill
           sizes="90vw"

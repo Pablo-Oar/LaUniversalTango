@@ -3,6 +3,7 @@
 import Image, { ImageProps } from "next/image"
 import { useState } from "react"
 import Lightbox from "@/components/gallery/Lightbox"
+import { withBasePath } from "@/lib/basePath"
 
 type Props = ImageProps & {
   title?: string
@@ -16,7 +17,8 @@ type Props = ImageProps & {
    ───────────────────────────────────────────────────────────── */
 export default function ZoomableImage({ title, wrapperClassName, ...imageProps }: Props) {
   const [open, setOpen] = useState(false)
-  const src = typeof imageProps.src === "string" ? imageProps.src : ""
+  const rawSrc = typeof imageProps.src === "string" ? imageProps.src : ""
+  const src = withBasePath(rawSrc)
 
   // Con `fill`, el botón debe calcar exactamente al contenedor padre (posicionado).
   // Sin `fill`, el botón se comporta como el propio elemento de la imagen.
@@ -32,7 +34,7 @@ export default function ZoomableImage({ title, wrapperClassName, ...imageProps }
         aria-label={`Ver imagen en grande: ${imageProps.alt || title || ""}`}
         className={`${baseClass} ${wrapperClassName ?? ""}`}
       >
-        <Image {...imageProps} />
+        <Image {...imageProps} src={src} />
       </button>
 
       {open && (

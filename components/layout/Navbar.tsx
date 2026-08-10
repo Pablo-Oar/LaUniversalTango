@@ -24,8 +24,9 @@ export default function Navbar() {
       style={{ backgroundColor: "rgba(5, 10, 46, 0.95)", backdropFilter: "blur(8px)" }}
     >
       <nav className="site-container flex items-center justify-between h-[70px]">
-        <Link href="/" className="font-display text-lg tracking-wide text-white" style={{ fontFamily: "var(--font-display)" }}>
-          La Universal Tango
+        <Link href="/" className="leading-none" style={{ fontFamily: "var(--font-display)" }}>
+          <span className="block text-sm tracking-[0.15em] text-white">LA UNIVERSAL</span>
+          <span className="block text-lg font-semibold tracking-[0.1em]" style={{ color: "#B8B0F8" }}>TANGO</span>
         </Link>
 
         {/* Desktop */}

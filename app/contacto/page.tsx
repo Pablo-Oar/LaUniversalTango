@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import ContactForm from "@/components/contact/ContactForm"
+import FAQ from "@/components/home/FAQ"
 import { CONTACT } from "@/data/contact"
 
 export const metadata: Metadata = {
@@ -50,6 +51,8 @@ export default function ContactoPage() {
           </aside>
         </div>
       </section>
+
+      <FAQ />
     </>
   )
 }

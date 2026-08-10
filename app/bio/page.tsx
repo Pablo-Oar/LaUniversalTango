@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import ZoomableImage from "@/components/ui/ZoomableImage"
 import { MEMBERS, ACHIEVEMENTS } from "@/data/band"
+import { CONCERTS } from "@/data/concerts"
 
 export const metadata: Metadata = {
   title: "Bio",
@@ -78,8 +79,28 @@ export default function BioPage() {
         </div>
       </section>
 
+      {/* Próximas Fechas */}
+      <section id="shows" className="section-py" style={{ backgroundColor: "#050A2E" }}>
+        <div className="site-container max-w-3xl">
+          <h2 className="h2-display mb-10">Próximas Fechas</h2>
+          <ul className="space-y-4">
+            {CONCERTS.map((show) => (
+              <li key={show.id} className="card flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+                <div>
+                  <p className="font-semibold" style={{ color: "#FFFFFF" }}>{show.title}</p>
+                  <p className="text-sm" style={{ color: "#D5D9F0" }}>
+                    {show.city} — {show.venue}
+                  </p>
+                </div>
+                <p className="text-sm font-semibold shrink-0" style={{ color: "#B8B0F8" }}>{show.date}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
       {/* Concierto */}
-      <section className="section-py" style={{ backgroundColor: "#050A2E" }}>
+      <section className="section-py" style={{ backgroundColor: "#0B1B5A" }}>
         <div className="site-container max-w-3xl">
           <h2 className="h2-display mb-6">Concierto</h2>
           <p className="mb-4" style={{ color: "#D5D9F0" }}>

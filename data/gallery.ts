@@ -41,5 +41,11 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
 ]
 
 export const GALLERY_VIDEOS: GalleryVideo[] = [
-  // TODO: completar con IDs reales de YouTube (@launiversaltango)
+  {
+    id: "video-1",
+    title: "La Universal Tango",
+    description: "Presentación en vivo.",
+    youtubeId: "CpI6qaQhtl8",
+  },
+  // TODO: sumar más videos reales de YouTube (@launiversaltango)
 ]

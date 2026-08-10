@@ -1,0 +1,263 @@
+@import "tailwindcss";
+
+/* ─────────────────────────────────────────────────────────────
+   DESIGN TOKENS — La Universal Tango
+   Basado en PaletaColoresYEstilos.txt (documento oficial del cliente)
+   ───────────────────────────────────────────────────────────── */
+
+@theme {
+
+  /* ── Tipografía ───────────────────────────────────────────── */
+  --font-display: var(--font-playfair), "Cormorant Garamond", serif;
+  --font-sans: var(--font-inter), "Poppins", sans-serif;
+
+  /* ── Colores: Fondos ──────────────────────────────────────── */
+  --color-bg-dark:      #050A2E;   /* Body, hero, footer, fondos generales */
+  --color-bg-secondary: #0B1B5A;   /* Secciones destacadas, paneles, nav   */
+  --color-bg-card:      #1C2D78;   /* Cards, contenedores                  */
+
+  /* ── Colores: Principales ─────────────────────────────────── */
+  --color-primary:       #6B5BE8;  /* Botones, links activos, CTAs         */
+  --color-primary-hover: #8B7AF5;  /* Hover de botones/enlaces             */
+  --color-accent:        #B8B0F8;  /* Bordes suaves, detalles, iconografía */
+
+  /* ── Colores: Texto ───────────────────────────────────────── */
+  --color-text:           #FFFFFF; /* Títulos, menús, hero                 */
+  --color-text-secondary: #D5D9F0; /* Párrafos, descripciones, metadata    */
+  --color-surface:        #F2F3FF; /* Fondos claros, secciones especiales  */
+
+  /* ── Tamaños de fuente: Hero / Secciones ─────────────────── */
+  --font-size-h1: clamp(2.25rem, 5vw, 52px);
+  --font-size-h2: clamp(1.75rem, 4vw, 40px);
+  --font-size-h3: clamp(1.375rem, 2.5vw, 28px);
+
+  /* ── Border radius ────────────────────────────────────────── */
+  --radius-btn:  8px;
+  --radius-card: 8px;
+
+}
+
+/* ─────────────────────────────────────────────────────────────
+   CSS VARIABLES GLOBALES (rgba y gradientes no soportados en @theme)
+   ───────────────────────────────────────────────────────────── */
+
+:root {
+  --gradient-official: linear-gradient(
+    135deg,
+    #050A2E 0%,
+    #0B1B5A 35%,
+    #384EA8 70%,
+    #6B5BE8 100%
+  );
+
+  --card-bg:     rgba(255, 255, 255, 0.05);
+  --card-border: rgba(184, 176, 248, 0.20);
+
+  --navbar-bg: rgba(5, 10, 46, 0.95);
+}
+
+/* ─────────────────────────────────────────────────────────────
+   BASE STYLES
+   ───────────────────────────────────────────────────────────── */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: clip;
+  max-width: 100%;
+  background-color: #050A2E;
+  color: #D5D9F0;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  color: #FFFFFF;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   UTILIDADES CUSTOM
+   ───────────────────────────────────────────────────────────── */
+
+@layer utilities {
+
+  /* Contenedor principal del sitio */
+  .site-container {
+    width: 100%;
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+
+  @media (max-width: 1024px) {
+    .site-container {
+      padding-left: 40px;
+      padding-right: 40px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .site-container {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
+
+  /* Padding vertical de sección */
+  .section-py {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+
+  @media (max-width: 768px) {
+    .section-py {
+      padding-top: 56px;
+      padding-bottom: 56px;
+    }
+  }
+
+  /* Gradiente oficial como fondo (heroes, banners, overlays) */
+  .bg-gradient-official {
+    background: var(--gradient-official);
+  }
+
+}
+
+/* ─────────────────────────────────────────────────────────────
+   COMPONENTES BASE REUTILIZABLES
+   ───────────────────────────────────────────────────────────── */
+
+@layer components {
+
+  /* H1 — títulos principales (Hero) */
+  .h1-display {
+    font-family: var(--font-display);
+    font-size: var(--font-size-h1);
+    font-weight: 700;
+    color: #FFFFFF;
+    letter-spacing: 0.02em;
+    line-height: 1.2;
+  }
+
+  /* H2 — subtítulos de sección */
+  .h2-display {
+    font-family: var(--font-display);
+    font-size: var(--font-size-h2);
+    font-weight: 600;
+    color: #FFFFFF;
+    letter-spacing: 0.01em;
+    line-height: 1.2;
+  }
+
+  /* H3 — títulos de bloque/card */
+  .h3-display {
+    font-family: var(--font-display);
+    font-size: var(--font-size-h3);
+    font-weight: 600;
+    color: #B8B0F8;
+  }
+
+  /* Botón primario — púrpura sólido */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background-color: #6B5BE8;
+    color: #FFFFFF;
+    font-family: var(--font-sans);
+    font-size: 15px;
+    font-weight: 600;
+    padding: 12px 32px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 200ms ease, transform 200ms ease;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .btn-primary:hover {
+    background-color: #8B7AF5;
+  }
+
+  /* Botón secundario — outline lavanda */
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background-color: transparent;
+    color: #FFFFFF;
+    font-family: var(--font-sans);
+    font-size: 15px;
+    font-weight: 600;
+    padding: 12px 32px;
+    border-radius: 8px;
+    border: 1px solid rgba(184, 176, 248, 0.5);
+    cursor: pointer;
+    transition: background-color 200ms ease, border-color 200ms ease;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .btn-outline:hover {
+    background-color: rgba(184, 176, 248, 0.08);
+    border-color: #B8B0F8;
+  }
+
+  .cta-pair {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  /* Card base — glass effect según spec oficial */
+  .card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 8px;
+    padding: 24px;
+  }
+
+  /* Input / Select / Textarea base */
+  .form-field {
+    width: 100%;
+    background-color: #0B1B5A;
+    color: #FFFFFF;
+    font-family: var(--font-sans);
+    font-size: 15px;
+    padding: 12px 16px;
+    border: 1px solid rgba(184, 176, 248, 0.20);
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 200ms ease, box-shadow 200ms ease;
+    appearance: none;
+  }
+
+  .form-field::placeholder {
+    color: #8B8FB8;
+  }
+
+  .form-field:focus {
+    border-color: #6B5BE8;
+    box-shadow: 0 0 0 2px rgba(107, 91, 232, 0.25);
+  }
+
+}

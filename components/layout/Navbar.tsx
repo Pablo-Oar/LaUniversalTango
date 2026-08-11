@@ -84,14 +84,13 @@ export default function Navbar() {
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className="flex items-center gap-3 py-3 text-sm tracking-wide transition-colors hover:text-white"
-                  style={{ color: active ? "#FFFFFF" : "#D5D9F0" }}
+                  className="flex items-center py-3 px-3 -mx-3 rounded text-sm tracking-wide transition-colors"
+                  style={{
+                    color: active ? "#FFFFFF" : "#D5D9F0",
+                    backgroundColor: active ? "#6B5BE8" : "transparent",
+                  }}
                   onClick={() => setOpen(false)}
                 >
-                  <span
-                    className="w-1.5 h-1.5 rounded-full transition-opacity"
-                    style={{ backgroundColor: "#6B5BE8", opacity: active ? 1 : 0 }}
-                  />
                   {link.label}
                 </Link>
               </li>

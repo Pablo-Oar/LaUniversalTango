@@ -14,6 +14,9 @@ const nextConfig: NextConfig = {
   env: {
     NEXT_PUBLIC_BASE_PATH: base,
   },
+  // Permite probar "npm run dev" desde el celular en la misma red (ej. http://192.168.1.3:3000).
+  // Sin esto, Next.js bloquea el JS por seguridad y la página carga pero queda sin interactividad.
+  allowedDevOrigins: ["192.168.1.3"],
 };
 
 export default nextConfig;

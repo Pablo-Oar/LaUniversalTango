@@ -57,7 +57,7 @@ export default function Lightbox({ items, index, onClose, onPrev, onNext }: Prop
         type="button"
         onClick={onClose}
         aria-label="Cerrar"
-        className="absolute top-5 right-5 sm:top-8 sm:right-8 flex items-center justify-center w-10 h-10 rounded-full text-2xl leading-none"
+        className="absolute top-5 right-5 sm:top-8 sm:right-8 z-10 flex items-center justify-center w-10 h-10 rounded-full text-2xl leading-none"
         style={{ color: "#FFFFFF", border: "1px solid rgba(184,176,248,0.3)" }}
       >
         ×
@@ -72,7 +72,7 @@ export default function Lightbox({ items, index, onClose, onPrev, onNext }: Prop
               onPrev()
             }}
             aria-label="Imagen anterior"
-            className="absolute left-2 sm:left-6 flex items-center justify-center w-11 h-11 rounded-full text-2xl"
+            className="absolute left-2 sm:left-6 z-10 flex items-center justify-center w-11 h-11 rounded-full text-2xl"
             style={{ color: "#FFFFFF", border: "1px solid rgba(184,176,248,0.3)" }}
           >
             ‹
@@ -84,7 +84,7 @@ export default function Lightbox({ items, index, onClose, onPrev, onNext }: Prop
               onNext()
             }}
             aria-label="Siguiente imagen"
-            className="absolute right-2 sm:right-6 flex items-center justify-center w-11 h-11 rounded-full text-2xl"
+            className="absolute right-2 sm:right-6 z-10 flex items-center justify-center w-11 h-11 rounded-full text-2xl"
             style={{ color: "#FFFFFF", border: "1px solid rgba(184,176,248,0.3)" }}
           >
             ›

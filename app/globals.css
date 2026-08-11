@@ -281,4 +281,16 @@ h1, h2, h3, h4 {
     color: #FFFFFF;
   }
 
+  /* Botón "Próximos Shows" del Hero en mobile — fondo claro fijo con su propio hover */
+  .btn-shows-mobile {
+    background-color: #D9D6E8;
+    border-color: #D9D6E8;
+    color: #0B1B5A;
+  }
+
+  .btn-shows-mobile:hover {
+    background-color: #c4c0dc;
+    border-color: #c4c0dc;
+  }
+
 }

@@ -131,7 +131,7 @@ export default function VideoSection() {
 
         {/* Cita de marca */}
         <blockquote
-          className="lg:col-span-3 lg:pl-6 italic"
+          className="lg:col-span-3 lg:pl-6 italic text-center lg:text-left"
           style={{ fontFamily: "var(--font-display)", fontSize: "28px", color: "#F2F3FF", lineHeight: 1.5 }}
         >
           El tango
@@ -146,7 +146,7 @@ export default function VideoSection() {
             height="16"
             viewBox="0 0 40 16"
             fill="none"
-            className="mt-4 block"
+            className="mt-4 block mx-auto lg:mx-0"
             aria-hidden="true"
           >
             <path

@@ -122,14 +122,10 @@ export default function Footer() {
       </div>
 
       <div
-        className="site-container py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs relative z-10"
+        className="site-container py-6 flex items-center justify-center text-xs relative z-10"
         style={{ borderTop: "1px solid rgba(184,176,248,0.15)", color: "#8B8FB8" }}
       >
         <p>© {new Date().getFullYear()} La Universal Tango</p>
-        <div className="flex gap-6">
-          <a href={CONTACT.emailHref} className="transition-colors hover:text-white">Prensa</a>
-          <a href="/contacto" className="transition-colors hover:text-white">Términos y Condiciones</a>
-        </div>
       </div>
     </footer>
   )

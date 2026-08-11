@@ -36,7 +36,6 @@ export default function QuickInfo() {
 
   return (
     <section
-      id="shows"
       className="grid grid-cols-1 lg:grid-cols-3"
       style={{
         borderTop: "2px solid #B4A9A7",
@@ -148,10 +147,15 @@ export default function QuickInfo() {
 
       {/* Próximos Shows */}
       <div
-        className="relative p-10 lg:p-12 flex flex-col"
+        id="shows"
+        className="relative p-10 lg:p-12 flex flex-col scroll-mt-[90px]"
         style={{ backgroundColor: "#D9D6E8" }}
       >
-        {/* Línea divisoria inset, no toca los bordes superior/inferior */}
+        {/* Línea divisoria — horizontal en mobile (columnas apiladas), vertical en desktop */}
+        <div
+          className="block lg:hidden absolute top-0 left-10 right-10"
+          style={{ height: "2px", backgroundColor: "#B4A9A7" }}
+        />
         <div
           className="hidden lg:block absolute left-0 top-8 bottom-8"
           style={{ width: "2px", backgroundColor: "#B4A9A7" }}

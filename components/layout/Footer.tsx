@@ -39,7 +39,7 @@ export default function Footer() {
       className="relative overflow-hidden"
       style={{
         backgroundColor: "#150F35",
-        borderTop: "2px solid rgba(255,255,255,0.5)",
+        borderTop: "2px solid #B4A9A7",
         boxShadow: "0 6px 16px rgba(0,0,0,0.35)",
       }}
     >
@@ -72,7 +72,7 @@ export default function Footer() {
         </div>
 
         <div>
-          <h3 className="text-xs uppercase tracking-[0.2em] font-semibold mb-5" style={{ color: "#B8B0F8" }}>
+          <h3 className="text-xs uppercase tracking-[0.2em] font-bold mb-5" style={{ color: "#FFFFFF" }}>
             Navegación
           </h3>
           <ul className="space-y-2 text-sm" style={{ color: "#D5D9F0" }}>
@@ -85,7 +85,7 @@ export default function Footer() {
         </div>
 
         <div>
-          <h3 className="text-xs uppercase tracking-[0.2em] font-semibold mb-5" style={{ color: "#B8B0F8" }}>
+          <h3 className="text-xs uppercase tracking-[0.2em] font-bold mb-5" style={{ color: "#FFFFFF" }}>
             Contacto
           </h3>
           <ul className="space-y-2 text-sm" style={{ color: "#D5D9F0" }}>
@@ -96,7 +96,7 @@ export default function Footer() {
         </div>
 
         <div>
-          <h3 className="text-xs uppercase tracking-[0.2em] font-semibold mb-5" style={{ color: "#B8B0F8" }}>
+          <h3 className="text-xs uppercase tracking-[0.2em] font-bold mb-5" style={{ color: "#FFFFFF" }}>
             Seguinos
           </h3>
           <div className="flex gap-3">

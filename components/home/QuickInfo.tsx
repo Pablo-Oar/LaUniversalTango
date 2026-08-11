@@ -39,7 +39,7 @@ export default function QuickInfo() {
       id="shows"
       className="grid grid-cols-1 lg:grid-cols-3"
       style={{
-        borderTop: "2px solid rgba(255,255,255,0.5)",
+        borderTop: "2px solid #B4A9A7",
         boxShadow: "0 6px 16px rgba(0,0,0,0.35)",
       }}
     >
@@ -60,9 +60,10 @@ export default function QuickInfo() {
           }}
         />
         <div className="relative z-10 flex flex-col flex-1">
-          <h2 className="text-xs uppercase tracking-[0.2em] font-semibold mb-4" style={{ color: "#B8B0F8" }}>
+          <h2 className="text-xl font-bold tracking-tight uppercase mb-1" style={{ color: "#FFFFFF" }}>
             Sobre Nosotros
           </h2>
+          <div className="w-8 h-px mb-6" style={{ backgroundColor: "#FFFFFF" }} />
           <p className="text-sm mb-8" style={{ color: "#D5D9F0" }}>
             La Universal Tango es una agrupación que rinde homenaje a la esencia
             del tango tradicional, reinterpretándolo con una mirada actual y
@@ -75,7 +76,7 @@ export default function QuickInfo() {
       {/* Último Lanzamiento */}
       <div
         className="relative p-10 lg:p-12 flex flex-col"
-        style={{ backgroundColor: "#D9D6E8" }}
+        style={{ backgroundColor: "#D9D6E8", borderLeft: "2px solid #B4A9A7" }}
       >
         <h2 className="text-xl font-bold tracking-tight mb-5" style={{ color: "#6B5BE8" }}>
           Último Lanzamiento
@@ -152,8 +153,8 @@ export default function QuickInfo() {
       >
         {/* Línea divisoria inset, no toca los bordes superior/inferior */}
         <div
-          className="hidden lg:block absolute left-0 top-8 bottom-8 w-px"
-          style={{ backgroundColor: "rgba(11,27,90,0.35)" }}
+          className="hidden lg:block absolute left-0 top-8 bottom-8"
+          style={{ width: "2px", backgroundColor: "#B4A9A7" }}
         />
         <h2 className="text-xl font-bold tracking-tight mb-6" style={{ color: "#6B5BE8" }}>
           Próximos Shows
@@ -179,7 +180,7 @@ export default function QuickInfo() {
         </ul>
         <Link
           href="/bio#shows"
-          className="btn-outline text-sm self-start mt-auto"
+          className="btn-outline text-sm self-center mt-auto"
           style={{ borderColor: "#6B5BE8", color: "#0B1B5A" }}
         >
           Ver Todos los Shows

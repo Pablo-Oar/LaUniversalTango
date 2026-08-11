@@ -16,17 +16,19 @@ export default function GalleryPreview() {
       className="section-py"
       style={{
         backgroundColor: "#04061A",
-        borderTop: "2px solid rgba(255,255,255,0.5)",
+        borderTop: "2px solid #B4A9A7",
         boxShadow: "0 6px 16px rgba(0,0,0,0.35)",
         paddingTop: "48px",
         paddingBottom: "48px",
       }}
     >
       <div className="site-container text-center">
-        <h2 className="text-xs uppercase tracking-[0.25em] font-semibold mb-2" style={{ color: "#F2F3FF" }}>
-          Galería
-        </h2>
-        <div className="w-8 h-px mx-auto mb-8" style={{ backgroundColor: "#B8B0F8" }} />
+        <div className="inline-block text-left mb-8">
+          <h2 className="text-xl font-bold tracking-tight uppercase mb-1" style={{ color: "#FFFFFF" }}>
+            Galería
+          </h2>
+          <div className="w-8 h-px" style={{ backgroundColor: "#FFFFFF" }} />
+        </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 mb-10">
           {photos.map((photo, i) => (
@@ -35,8 +37,8 @@ export default function GalleryPreview() {
               type="button"
               onClick={() => setLightboxIndex(i)}
               aria-label={`Ver imagen: ${photo.title}`}
-              className="relative aspect-4/5 overflow-hidden rounded-lg cursor-zoom-in group"
-              style={{ backgroundColor: "#1C2D78", border: "1px solid rgba(255,255,255,0.25)" }}
+              className="relative aspect-4/5 overflow-hidden cursor-zoom-in group"
+              style={{ backgroundColor: "#1C2D78", border: "0.5px solid #FFFFFF" }}
             >
               <Image
                 src={withBasePath(photo.src)}

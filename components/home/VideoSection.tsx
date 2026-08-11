@@ -23,7 +23,7 @@ export default function VideoSection() {
       className="section-py"
       style={{
         backgroundColor: "#2B2163",
-        borderTop: "2px solid rgba(255,255,255,0.5)",
+        borderTop: "2px solid #B4A9A7",
         boxShadow: "0 6px 16px rgba(0,0,0,0.35)",
         paddingTop: "48px",
         paddingBottom: "48px",
@@ -82,10 +82,10 @@ export default function VideoSection() {
 
         {/* Lista de videos */}
         <div className="lg:col-span-3">
-          <h2 className="text-xl font-bold tracking-tight mb-1" style={{ color: "#B8B0F8" }}>
+          <h2 className="text-xl font-bold tracking-tight uppercase mb-1" style={{ color: "#FFFFFF" }}>
             Videos
           </h2>
-          <div className="w-8 h-px mb-6" style={{ backgroundColor: "#B8B0F8" }} />
+          <div className="w-8 h-px mb-6" style={{ backgroundColor: "#FFFFFF" }} />
           <ul className="space-y-4">
             {(rest.length > 0 ? rest : PLACEHOLDER_VIDEOS).map((video) => {
               const isReal = "youtubeId" in video

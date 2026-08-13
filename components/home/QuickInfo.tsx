@@ -191,13 +191,13 @@ export default function QuickInfo() {
             </li>
           ))}
         </ul>
-        <Link
-          href="/bio#shows"
+        <a
+          href={withBasePath("/bio/#shows")}
           className="btn-outline text-sm self-center mt-auto"
           style={{ borderColor: "#6B5BE8", color: "#0B1B5A" }}
         >
           Ver Todos los Shows
-        </Link>
+        </a>
       </div>
     </section>
   )

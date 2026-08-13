@@ -35,7 +35,7 @@ export default function Hero() {
       />
 
       {/* MOBILE: título arriba, botones abajo (justify-between) */}
-      <div className="site-container relative z-10 flex flex-col justify-between h-full -mt-4 pb-10 lg:hidden">
+      <div className="site-container relative z-10 flex flex-col justify-between h-full -mt-[34px] pb-10 lg:hidden">
         <div>
           <Image
             src={withBasePath("/images/logo/logo-negro.png")}
@@ -62,7 +62,7 @@ export default function Hero() {
       {/* DESKTOP: texto centrado verticalmente (fijo); botones posicionados aparte
           con "absolute" para poder moverlos sin que afecte la posición del texto. */}
       <div className="hidden lg:flex site-container relative z-10 h-full min-h-[95vh] items-center pb-88">
-        <div className="-mt-64">
+        <div className="-mt-52">
           <Image
             src={withBasePath("/images/logo/logo-blanco.png")}
             alt="La Universal Tango"

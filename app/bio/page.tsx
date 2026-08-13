@@ -80,7 +80,7 @@ export default function BioPage() {
       </section>
 
       {/* Próximas Fechas */}
-      <section id="shows" className="section-py" style={{ backgroundColor: "#050A2E" }}>
+      <section id="shows" className="section-py scroll-mt-[90px]" style={{ backgroundColor: "#050A2E" }}>
         <div className="site-container max-w-3xl">
           <h2 className="h2-display mb-10">Próximas Fechas</h2>
           <ul className="space-y-4">

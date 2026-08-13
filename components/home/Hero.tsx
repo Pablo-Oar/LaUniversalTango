@@ -61,12 +61,6 @@ export default function Hero() {
               Tango
             </span>
           </h1>
-          <p
-            className="text-sm uppercase tracking-[0.25em]"
-            style={{ color: "#D5D9F0", textShadow: "0 1px 4px rgba(0,0,0,0.9), 0 0 12px rgba(0,0,0,0.7)" }}
-          >
-            Tradición, pasión y elegancia
-          </p>
         </div>
 
         <div className="cta-pair">
@@ -94,9 +88,6 @@ export default function Hero() {
               Tango
             </span>
           </h1>
-          <p className="text-sm uppercase tracking-[0.25em]" style={{ color: "#D5D9F0" }}>
-            Tradición, pasión y elegancia
-          </p>
         </div>
       </div>
 

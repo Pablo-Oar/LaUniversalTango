@@ -33,7 +33,7 @@ export default function Navbar() {
             alt="La Universal Tango"
             width={220}
             height={66}
-            className="h-30 w-auto"
+            className="h-30 w-auto translate-y-[9px]"
             priority
           />
         </Link>

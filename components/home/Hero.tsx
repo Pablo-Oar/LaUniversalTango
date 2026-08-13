@@ -35,14 +35,14 @@ export default function Hero() {
       />
 
       {/* MOBILE: título arriba, botones abajo (justify-between) */}
-      <div className="site-container relative z-10 flex flex-col justify-between h-full pt-2 pb-10 lg:hidden">
+      <div className="site-container relative z-10 flex flex-col justify-between h-full -mt-4 pb-10 lg:hidden">
         <div>
           <Image
             src={withBasePath("/images/logo/logo-negro.png")}
             alt="La Universal Tango"
             width={340}
             height={102}
-            className="w-auto h-[200px] mb-4"
+            className="w-auto h-[300px] mb-4"
           />
         </div>
 
@@ -68,7 +68,7 @@ export default function Hero() {
             alt="La Universal Tango"
             width={340}
             height={102}
-            className="w-auto h-[300px] mb-6"
+            className="w-auto h-[450px] mb-6"
           />
         </div>
       </div>

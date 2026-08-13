@@ -35,32 +35,15 @@ export default function Hero() {
       />
 
       {/* MOBILE: título arriba, botones abajo (justify-between) */}
-      <div className="site-container relative z-10 flex flex-col justify-between h-full py-10 lg:hidden">
+      <div className="site-container relative z-10 flex flex-col justify-between h-full pt-2 pb-10 lg:hidden">
         <div>
-          <h1 className="mb-4" style={{ fontFamily: "var(--font-display)", lineHeight: 1.05 }}>
-            <span
-              className="block"
-              style={{
-                fontSize: "var(--font-size-h1)",
-                fontWeight: 700,
-                color: "#FFFFFF",
-                textShadow: "0 2px 6px rgba(0,0,0,0.9), 0 0 16px rgba(0,0,0,0.7)",
-              }}
-            >
-              La Universal
-            </span>
-            <span
-              className="block"
-              style={{
-                fontSize: "var(--font-size-h1)",
-                fontWeight: 700,
-                color: "#B8B0F8",
-                textShadow: "0 2px 6px rgba(0,0,0,0.9), 0 0 16px rgba(0,0,0,0.7)",
-              }}
-            >
-              Tango
-            </span>
-          </h1>
+          <Image
+            src={withBasePath("/images/logo/logo-negro.png")}
+            alt="La Universal Tango"
+            width={340}
+            height={102}
+            className="w-auto h-[200px] mb-4"
+          />
         </div>
 
         <div className="cta-pair">
@@ -79,15 +62,14 @@ export default function Hero() {
       {/* DESKTOP: texto centrado verticalmente (fijo); botones posicionados aparte
           con "absolute" para poder moverlos sin que afecte la posición del texto. */}
       <div className="hidden lg:flex site-container relative z-10 h-full min-h-[95vh] items-center pb-88">
-        <div>
-          <h1 className="mb-6" style={{ fontFamily: "var(--font-display)", lineHeight: 1.05 }}>
-            <span className="block" style={{ fontSize: "var(--font-size-h1)", fontWeight: 700, color: "#FFFFFF" }}>
-              La Universal
-            </span>
-            <span className="block" style={{ fontSize: "var(--font-size-h1)", fontWeight: 700, color: "#B8B0F8" }}>
-              Tango
-            </span>
-          </h1>
+        <div className="-mt-64">
+          <Image
+            src={withBasePath("/images/logo/logo-blanco.png")}
+            alt="La Universal Tango"
+            width={340}
+            height={102}
+            className="w-auto h-[300px] mb-6"
+          />
         </div>
       </div>
 

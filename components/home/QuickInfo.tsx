@@ -36,7 +36,7 @@ export default function QuickInfo() {
 
   return (
     <section
-      className="grid grid-cols-1 lg:grid-cols-3"
+      className="grid grid-cols-1 lg:grid-cols-[0.8fr_0.8fr_1.4fr]"
       style={{
         borderTop: "2px solid #B4A9A7",
         boxShadow: "0 6px 16px rgba(0,0,0,0.35)",
@@ -60,13 +60,13 @@ export default function QuickInfo() {
         />
         <div className="relative z-10 flex flex-col flex-1">
           <h2 className="text-xl font-bold tracking-tight uppercase mb-1" style={{ color: "#FFFFFF" }}>
-            Sobre Nosotros
+            Sobre la Universal
           </h2>
           <div className="w-8 h-px mb-6" style={{ backgroundColor: "#FFFFFF" }} />
-          <p className="text-sm mb-8" style={{ color: "#D5D9F0" }}>
-            La Universal Tango es una agrupación que rinde homenaje a la esencia
-            del tango tradicional, reinterpretándolo con una mirada actual y
-            profunda.
+          <p className="text-base leading-relaxed mb-8" style={{ color: "#D5D9F0" }}>
+            La universal es un grupo milonguero que interpreta tangos, valses y
+            milongas tradicionales de la década del 40. Llevando a las pistas su
+            repertorio intenso y vibrante.
           </p>
           <Link href="/bio" className="btn-outline self-start mt-auto">Conocé Nuestra Historia</Link>
         </div>
@@ -77,34 +77,35 @@ export default function QuickInfo() {
         className="relative p-10 lg:p-12 flex flex-col"
         style={{ backgroundColor: "#D9D6E8", borderLeft: "2px solid #B4A9A7" }}
       >
-        <h2 className="text-xl font-bold tracking-tight mb-5" style={{ color: "#6B5BE8" }}>
+        <h2 className="text-xl font-bold tracking-tight uppercase mb-1" style={{ color: "#6B5BE8" }}>
           Último Lanzamiento
         </h2>
-        <div className="flex items-start gap-4 mb-6">
-          <div className="relative w-20 h-28 rounded overflow-hidden shrink-0" style={{ backgroundColor: "#1C2D78" }}>
+        <div className="w-8 h-px mb-6" style={{ backgroundColor: "#6B5BE8" }} />
+        <div className="flex items-start gap-5 mb-6">
+          <div className="relative w-32 h-44 rounded overflow-hidden shrink-0" style={{ backgroundColor: "#1C2D78" }}>
             <Image
               src={withBasePath(LATEST_RELEASE.coverImage)}
               alt={LATEST_RELEASE.albumTitle}
               fill
-              sizes="80px"
+              sizes="128px"
               className="object-cover"
             />
           </div>
           <div className="min-w-0 flex-1">
-            <p className="text-sm font-semibold truncate" style={{ color: "#050A2E" }}>
+            <p className="text-lg font-bold uppercase tracking-tight truncate" style={{ color: "#050A2E" }}>
               {LATEST_RELEASE.albumTitle}
             </p>
-            <p className="text-xs truncate mb-4" style={{ color: "#0B1B5A" }}>
+            <p className="text-sm truncate mb-6" style={{ color: "#0B1B5A" }}>
               {LATEST_RELEASE.trackTitle}
             </p>
 
             {/* Reproductor (visual, sin audio real todavía) */}
             <div className="flex items-center gap-3">
               <div
-                className="flex items-center justify-center w-9 h-9 rounded-full shrink-0"
+                className="flex items-center justify-center w-10 h-10 rounded-full shrink-0"
                 style={{ backgroundColor: "#6B5BE8" }}
               >
-                <span style={{ color: "#FFFFFF", fontSize: "13px", marginLeft: "2px" }}>▶</span>
+                <span style={{ color: "#FFFFFF", fontSize: "14px", marginLeft: "2px" }}>▶</span>
               </div>
               <div className="flex-1 h-1 rounded-full" style={{ backgroundColor: "rgba(11,27,90,0.15)" }}>
                 <div className="h-1 rounded-full" style={{ width: "0%", backgroundColor: "#6B5BE8" }} />
@@ -160,16 +161,24 @@ export default function QuickInfo() {
           className="hidden lg:block absolute left-0 top-8 bottom-8"
           style={{ width: "2px", backgroundColor: "#B4A9A7" }}
         />
-        <h2 className="text-xl font-bold tracking-tight mb-6" style={{ color: "#6B5BE8" }}>
+        <h2 className="text-xl font-bold tracking-tight uppercase mb-1" style={{ color: "#6B5BE8" }}>
           Próximos Shows
         </h2>
-        <ul className="space-y-4 mb-6">
-          {shows.map((show) => (
-            <li key={show.id} className="flex items-center justify-between gap-3 text-sm">
-              <div className="min-w-0">
+        <div className="w-8 h-px mb-6" style={{ backgroundColor: "#6B5BE8" }} />
+        <ul className="mb-6">
+          {shows.map((show, i) => (
+            <li
+              key={show.id}
+              className="flex items-center justify-between gap-3 text-sm py-3"
+              style={i > 0 ? { borderTop: "1px solid rgba(11,27,90,0.15)" } : undefined}
+            >
+              <div className="min-w-0 flex-1 grid grid-cols-1 sm:grid-cols-[95px_125px_1fr] gap-y-0.5 sm:gap-x-4 sm:items-center">
                 <p className="font-semibold" style={{ color: "#050A2E" }}>{show.date}</p>
-                <p className="text-xs truncate" style={{ color: "#0B1B5A" }}>
-                  {show.city} — {show.venue}
+                <p className="text-xs font-bold uppercase tracking-wide" style={{ color: "#0B1B5A" }}>
+                  {show.city}
+                </p>
+                <p className="text-sm truncate" style={{ color: "#6B5B8F" }}>
+                  {show.venue}
                 </p>
               </div>
               <Link

@@ -74,14 +74,14 @@ export default function BioPage() {
           ) : (
             <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-8">
               {MEMBERS.map((member) => (
-                <div key={member.id} className="card overflow-hidden p-0">
-                  <div className="relative aspect-4/5 max-w-32 sm:max-w-56 mx-auto mt-4 sm:mt-6" style={{ backgroundColor: "#1C2D78" }}>
+                <div key={member.id} className="card member-card overflow-hidden p-0 group">
+                  <div className="relative aspect-4/5 max-w-32 sm:max-w-56 mx-auto mt-4 sm:mt-6 overflow-hidden rounded" style={{ backgroundColor: "#1C2D78" }}>
                     <Image
                       src={withBasePath(member.photo)}
                       alt={member.name}
                       fill
                       sizes="(max-width: 640px) 128px, 224px"
-                      className="object-cover rounded"
+                      className="object-cover transition-transform duration-300 group-hover:scale-110"
                     />
                   </div>
                   <div className="p-3 sm:p-6 text-center sm:text-left">

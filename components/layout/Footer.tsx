@@ -54,11 +54,20 @@ export default function Footer() {
           className="object-cover"
           style={{ objectPosition: "60% 10%" }}
         />
+        {/* Desktop: degrade horizontal (columna de texto a la izquierda) */}
         <div
-          className="absolute inset-0"
+          className="absolute inset-0 hidden lg:block"
           style={{
             background:
               "linear-gradient(90deg, #150F35 0%, #150F35 30%, rgba(21,15,53,0.35) 65%, rgba(21,15,53,0.1) 100%)",
+          }}
+        />
+        {/* Mobile: degrade vertical (columna única, texto ocupa todo el ancho) */}
+        <div
+          className="absolute inset-0 lg:hidden"
+          style={{
+            background:
+              "linear-gradient(180deg, rgba(21,15,53,0.35) 0%, rgba(21,15,53,0.85) 55%, #150F35 100%)",
           }}
         />
       </div>

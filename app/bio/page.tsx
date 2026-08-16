@@ -1,8 +1,10 @@
 import type { Metadata } from "next"
 import Link from "next/link"
+import Image from "next/image"
 import ZoomableImage from "@/components/ui/ZoomableImage"
 import { MEMBERS, ACHIEVEMENTS } from "@/data/band"
 import { CONCERTS } from "@/data/concerts"
+import { withBasePath } from "@/lib/basePath"
 
 export const metadata: Metadata = {
   title: "Bio",
@@ -72,14 +74,25 @@ export default function BioPage() {
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
               {MEMBERS.map((member) => (
-                <div key={member.id} className="card">
-                  <h3 className="h3-display mb-1 text-xl">{member.name}</h3>
-                  <p className="text-xs uppercase tracking-wider mb-3" style={{ color: "#8B8FB8" }}>
-                    {member.instrument}
-                  </p>
-                  {member.bio && (
-                    <p className="text-sm" style={{ color: "#D5D9F0" }}>{member.bio}</p>
-                  )}
+                <div key={member.id} className="card overflow-hidden p-0">
+                  <div className="relative aspect-4/5 max-w-56 mx-auto mt-6" style={{ backgroundColor: "#1C2D78" }}>
+                    <Image
+                      src={withBasePath(member.photo)}
+                      alt={member.name}
+                      fill
+                      sizes="224px"
+                      className="object-cover rounded"
+                    />
+                  </div>
+                  <div className="p-6">
+                    <h3 className="h3-display mb-1 text-xl">{member.name}</h3>
+                    <p className="text-xs uppercase tracking-wider mb-3" style={{ color: "#8B8FB8" }}>
+                      {member.instrument}
+                    </p>
+                    {member.bio && (
+                      <p className="text-sm" style={{ color: "#D5D9F0" }}>{member.bio}</p>
+                    )}
+                  </div>
                 </div>
               ))}
             </div>
@@ -112,20 +125,24 @@ export default function BioPage() {
         <div className="site-container max-w-3xl">
           <h2 className="h2-display mb-6">Concierto</h2>
           <p className="mb-4" style={{ color: "#D5D9F0" }}>
-            El repertorio está diseñado con sus bases en el &ldquo;tempo&rdquo; de las
-            canciones, controlando la dinámica de ritmos para los bailarines. Pugliese,
-            Di Sarli, D&apos;Arienzo, Tanturi, D&apos;Angelis, etc., integran el playlist.
-            Tenemos un set de 25 canciones, repartido en obras cantadas e instrumentales
-            seleccionadas para los &ldquo;milongueros&rdquo; y oyentes, 100% bailable,
-            dividido por tandas de tangos, valses y milongas, ofreciendo así un
-            espectáculo para que el público baile con todas las canciones.
+            El repertorio está pensado desde la pista y para la pista, cuidando
+            especialmente los tempos, la cadencia y la dinámica de cada tanda, para
+            acompañar el baile y mantener el clima de la milonga.
+          </p>
+          <p className="mb-4" style={{ color: "#D5D9F0" }}>
+            Pugliese, Di Sarli, D&apos;Arienzo, Tanturi, D&apos;Agostino y otros grandes
+            maestros forman parte de nuestra música, combinando temas cantados e
+            instrumentales.
+          </p>
+          <p className="mb-4" style={{ color: "#D5D9F0" }}>
+            Una selección pensada para los milongueros y para quienes disfrutan
+            escuchar tango, con un repertorio 100% bailable, organizado en tandas y con
+            una dinámica que busca que en la pista se encuentren la energía y el abrazo
+            durante todo el show.
           </p>
           <p style={{ color: "#D5D9F0" }}>
-            La duración del show es de 1:30 hs., que se puede dividir en dos sets o
-            entradas de 45 minutos cada una. Además, &ldquo;La Universal Tango&rdquo;
-            propone la posibilidad de sumar a la función la participación de bailarines
-            y músicos locales de la ciudad donde se presenta, como invitados para
-            brindar un espectáculo más completo y variado.
+            La Universal Tango también ofrece un show alternativo para salas de
+            conciertos y eventos privados.
           </p>
         </div>
       </section>

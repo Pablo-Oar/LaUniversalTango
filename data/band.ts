@@ -12,43 +12,42 @@ export type Member = {
 }
 
 // Formación confirmada por el cliente, el Rider Técnico y Bio.Español.docx.
-// TODO: falta foto individual de cada integrante (headshot 600x600) —
-// por ahora se usa la foto grupal en la sección "Los Músicos" de /bio.
+// Descripciones (bio) pendientes de completar por el cliente.
 export const MEMBERS: Member[] = [
   {
     id: "bandoneon",
     name: "Guido Gavazza",
     instrument: "Bandoneón",
     bio: "",
-    photo: "/images/about/integrantes/guido-gavazza.jpg",
+    photo: "/images/about/integrantes/guido.png",
   },
   {
     id: "violin",
     name: "Gabriela Araujo",
     instrument: "Violín",
     bio: "",
-    photo: "/images/about/integrantes/gabriela-araujo.jpg",
+    photo: "/images/about/integrantes/gabriela.png",
   },
   {
     id: "piano",
     name: "Nicolás Rodríguez",
     instrument: "Piano",
     bio: "",
-    photo: "/images/about/integrantes/nicolas-rodriguez.jpg",
+    photo: "/images/about/integrantes/nicolas.png",
   },
   {
     id: "contrabajo",
     name: "Germán Realini",
     instrument: "Contrabajo",
     bio: "Producción General del grupo.",
-    photo: "/images/about/integrantes/german-realini.jpg",
+    photo: "/images/about/integrantes/german.png",
   },
   {
     id: "voz",
     name: "Lorenza (Carolina Lorenzatti)",
     instrument: "Voz",
     bio: "",
-    photo: "/images/about/integrantes/lorenza.jpg",
+    photo: "/images/about/integrantes/lorenza.png",
   },
 ]
 

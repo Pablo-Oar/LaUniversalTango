@@ -76,8 +76,8 @@ export default function Footer() {
         <div>
           <h3 className="h3-display mb-3 text-xl" style={{ color: "#FFFFFF" }}>La Universal Tango</h3>
           <p className="text-sm" style={{ color: "#D5D9F0" }}>
-            Grupo musical profesional de tango. Conciertos, giras internacionales
-            y presentaciones en festivales.
+            Grupo profesional de Tango, estilo Milonguero. Conciertos, giras
+            internacionales y presentaciones en festivales.
           </p>
         </div>
 

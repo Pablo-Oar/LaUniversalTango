@@ -51,6 +51,25 @@ export const MEMBERS: Member[] = [
   },
 ]
 
+export type PressMention = {
+  outlet: string
+  title: string
+  url: string
+}
+
+export const PRESS_MENTIONS: PressMention[] = [
+  {
+    outlet: "La Capital",
+    title: "La Milonga Universal revive el espíritu de \"El Levante\" en una noche de tango en Rosario",
+    url: "https://www.lacapital.com.ar/zoom/la-milonga-universal-revive-el-espiritu-el-levante-una-noche-tango-rosario-n10270732.html",
+  },
+  {
+    outlet: "El Ciudadano",
+    title: "La Milonga Universal revive el espíritu de \"El Levante\" en una edición especial en Casa Brava",
+    url: "https://elciudadanoweb.com/la-milonga-universal-revive-el-espiritu-de-el-levante-en-una-edicion-especial-en-casa-brava/",
+  },
+]
+
 export type Achievement = {
   festival: string
   year: string

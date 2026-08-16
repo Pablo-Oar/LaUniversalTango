@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import Image from "next/image"
 import ZoomableImage from "@/components/ui/ZoomableImage"
-import { MEMBERS, ACHIEVEMENTS } from "@/data/band"
+import { MEMBERS, ACHIEVEMENTS, PRESS_MENTIONS } from "@/data/band"
 import { CONCERTS } from "@/data/concerts"
 import { withBasePath } from "@/lib/basePath"
 
@@ -147,33 +147,8 @@ export default function BioPage() {
         </div>
       </section>
 
-      {/* Filosofía */}
-      <section className="section-py" style={{ backgroundColor: "#050A2E" }}>
-        <div className="site-container max-w-3xl">
-          <h2 className="h2-display mb-6">Filosofía</h2>
-          <p className="mb-8" style={{ color: "#D5D9F0" }}>
-            <strong style={{ color: "#FFFFFF" }}>Misión:</strong> Ser embajadores auténticos
-            del tango, preservando y compartiendo la riqueza musical de este arte único en
-            escenarios del mundo.
-          </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {[
-              ["Autenticidad", "Tango de verdad, respetando la tradición"],
-              ["Excelencia", "Solo presentaciones de máxima calidad"],
-              ["Profesionalismo", "Técnica impecable y dedicación"],
-              ["Pasión", "La música debe sentirse en el alma"],
-            ].map(([title, desc]) => (
-              <div key={title} className="card">
-                <h3 className="h3-display mb-2 text-lg">{title}</h3>
-                <p className="text-sm" style={{ color: "#D5D9F0" }}>{desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Workshops */}
-      <section className="section-py" style={{ backgroundColor: "#0B1B5A" }}>
+      <section className="section-py" style={{ backgroundColor: "#050A2E" }}>
         <div className="site-container max-w-3xl">
           <h2 className="h2-display mb-6">Workshops</h2>
           <p className="mb-4" style={{ color: "#D5D9F0" }}>
@@ -204,13 +179,33 @@ export default function BioPage() {
               ))}
             </ul>
           )}
-        </div>
-      </section>
 
-      {/* CTA */}
-      <section className="section-py text-center" style={{ backgroundColor: "#050A2E" }}>
-        <div className="site-container">
-          <Link href="/contacto" className="btn-primary">Contratar para un evento</Link>
+          {PRESS_MENTIONS.length > 0 && (
+            <>
+              <h3 className="h3-display mt-10 mb-4 text-lg">En los Medios</h3>
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {PRESS_MENTIONS.map((item) => (
+                  <li key={item.url}>
+                    <a
+                      href={item.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="card block h-full hover:opacity-90 transition-opacity"
+                    >
+                      <p className="text-xs uppercase tracking-wider mb-2" style={{ color: "#B8B0F8" }}>
+                        {item.outlet}
+                      </p>
+                      <p className="text-sm font-semibold" style={{ color: "#FFFFFF" }}>{item.title}</p>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </>
+          )}
+
+          <div className="text-center mt-10">
+            <Link href="/contacto" className="btn-primary">Contratar para un evento</Link>
+          </div>
         </div>
       </section>
     </>

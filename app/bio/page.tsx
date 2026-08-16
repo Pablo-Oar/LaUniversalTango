@@ -18,19 +18,27 @@ export default function BioPage() {
         <div className="site-container grid grid-cols-1 lg:grid-cols-5 gap-12 items-center">
           <div className="lg:col-span-3">
             <p className="text-sm uppercase tracking-[0.2em] mb-4" style={{ color: "#B8B0F8" }}>
-              Grupo Musical Profesional
+              Sobre la Universal
             </p>
             <h1 className="h1-display mb-6">La Universal Tango</h1>
             <p className="mb-4" style={{ color: "#D5D9F0" }}>
               La Universal Tango está integrada por Bandoneón, Piano, Violín, Contrabajo
-              y Cantante. Interpreta obras de Tango, Valses y Milongas tradicionales de la
-              década del 40 en sus versiones originales con un sonido actual y poderoso.
+              y Cantante. Se formó en el año 2023 con el concepto de habitar las milongas
+              y festivales de Argentina y otros continentes.
             </p>
             <p style={{ color: "#D5D9F0" }}>
+              Interpreta obras de Tango, Valses y Milongas tradicionales de la década del
+              40 en sus versiones originales con un sonido actual y poderoso,
+              presentándose en importantes escenarios y festivales de Argentina como el
+              mítico Marabú, La Viruta (Palermo) y el Bilongón (San Telmo), además de
+              festivales internacionales como Azul Tango (Holanda) y Tangazo (Alemania),
+              y milongas en Zúrich, Milán, Hamburgo, entre otras ciudades.
+            </p>
+            <p className="mt-4" style={{ color: "#D5D9F0" }}>
               El Tango desde los barrios argentinos al mundo, con su esencia, su poesía y
-              sonidos urbanos. Interpretado por músicos profesionales en el género desde
-              hace muchos años, realizando numerosos proyectos con grabaciones y giras
-              internacionales por diferentes continentes.
+              sonidos urbanos. Interpretado por músicos profesionales en el género con años
+              de trayectoria, realizando numerosos proyectos con grabaciones y giras
+              internacionales por diferentes partes del mundo.
             </p>
           </div>
           <div

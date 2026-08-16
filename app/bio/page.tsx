@@ -72,25 +72,25 @@ export default function BioPage() {
           {MEMBERS.length === 0 ? (
             <p style={{ color: "#D5D9F0" }}>Próximamente: presentación de los integrantes del grupo.</p>
           ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-8">
               {MEMBERS.map((member) => (
                 <div key={member.id} className="card overflow-hidden p-0">
-                  <div className="relative aspect-4/5 max-w-56 mx-auto mt-6" style={{ backgroundColor: "#1C2D78" }}>
+                  <div className="relative aspect-4/5 max-w-32 sm:max-w-56 mx-auto mt-4 sm:mt-6" style={{ backgroundColor: "#1C2D78" }}>
                     <Image
                       src={withBasePath(member.photo)}
                       alt={member.name}
                       fill
-                      sizes="224px"
+                      sizes="(max-width: 640px) 128px, 224px"
                       className="object-cover rounded"
                     />
                   </div>
-                  <div className="p-6">
-                    <h3 className="h3-display mb-1 text-xl">{member.name}</h3>
-                    <p className="text-xs uppercase tracking-wider mb-3" style={{ color: "#8B8FB8" }}>
+                  <div className="p-3 sm:p-6 text-center sm:text-left">
+                    <h3 className="h3-display mb-1 text-base sm:text-xl">{member.name}</h3>
+                    <p className="text-[10px] sm:text-xs uppercase tracking-wider mb-2 sm:mb-3" style={{ color: "#8B8FB8" }}>
                       {member.instrument}
                     </p>
                     {member.bio && (
-                      <p className="text-sm" style={{ color: "#D5D9F0" }}>{member.bio}</p>
+                      <p className="text-xs sm:text-sm" style={{ color: "#D5D9F0" }}>{member.bio}</p>
                     )}
                   </div>
                 </div>

@@ -63,10 +63,10 @@ export default function QuickInfo() {
             Sobre la Universal
           </h2>
           <div className="w-8 h-px mb-6" style={{ backgroundColor: "#FFFFFF" }} />
-          <p className="text-base leading-relaxed mb-8" style={{ color: "#D5D9F0" }}>
-            La universal es un grupo milonguero que interpreta tangos, valses y
-            milongas tradicionales de la década del 40. Llevando a las pistas su
-            repertorio intenso y vibrante.
+          <p className="text-lg leading-relaxed mb-8" style={{ color: "#D5D9F0" }}>
+            La Universal es un grupo milonguero que interpreta tangos, valses y
+            milongas tradicionales de la década del 40, en versiones originales
+            con un sonido actual y poderoso.
           </p>
           <Link href="/bio" className="btn-outline self-start mt-auto">Conocé Nuestra Historia</Link>
         </div>

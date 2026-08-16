@@ -47,12 +47,12 @@ export default function Footer() {
       {/* Foto de fondo, fundida con el color de fondo del footer */}
       <div className="absolute inset-0">
         <Image
-          src={withBasePath("/images/footer/footer.png")}
+          src={withBasePath("/images/about/grupo-secundaria.jpg")}
           alt=""
           fill
           sizes="100vw"
           className="object-cover"
-          style={{ objectPosition: "50% 55%" }}
+          style={{ objectPosition: "60% 10%" }}
         />
         <div
           className="absolute inset-0"

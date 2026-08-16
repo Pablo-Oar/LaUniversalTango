@@ -29,7 +29,7 @@ export default function VideoSection() {
         paddingBottom: "48px",
       }}
     >
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-10 grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-10 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-16 items-start">
         {/* Video destacado */}
         <div className="lg:col-span-6">
           {featured ? (
@@ -81,7 +81,7 @@ export default function VideoSection() {
         </div>
 
         {/* Lista de videos */}
-        <div className="lg:col-span-3">
+        <div className="lg:col-span-6">
           <h2 className="text-xl font-bold tracking-tight uppercase mb-1" style={{ color: "#FFFFFF" }}>
             Videos
           </h2>
@@ -128,35 +128,6 @@ export default function VideoSection() {
             })}
           </ul>
         </div>
-
-        {/* Cita de marca */}
-        <blockquote
-          className="lg:col-span-3 lg:pl-6 italic text-center lg:text-left"
-          style={{ fontFamily: "var(--font-display)", fontSize: "28px", color: "#F2F3FF", lineHeight: 1.5 }}
-        >
-          El tango
-          <br />
-          es más que música,
-          <br />
-          es un sentimiento
-          <br />
-          que nos une.
-          <svg
-            width="40"
-            height="16"
-            viewBox="0 0 40 16"
-            fill="none"
-            className="mt-4 block mx-auto lg:mx-0"
-            aria-hidden="true"
-          >
-            <path
-              d="M1 8c3-6 6-6 9 0s6 6 9 0 6-6 9 0 6 6 9 0"
-              stroke="#B8B0F8"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-            />
-          </svg>
-        </blockquote>
       </div>
     </section>
   )

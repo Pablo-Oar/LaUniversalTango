@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { CONTACT } from "@/data/contact"
+import { trackEvent } from "@/lib/gtag"
 
 const INQUIRY_TYPES = [
   "Contratación para evento",
@@ -41,6 +42,7 @@ export default function ContactForm() {
 
       if (res.ok) {
         setStatus("success")
+        trackEvent("generate_lead", { form: "contacto", tipo_consulta: inquiryType })
         form.reset()
         setInquiryType("")
       } else {

@@ -4,6 +4,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { CONTACT } from "@/data/contact"
 import { withBasePath } from "@/lib/basePath"
+import { trackEvent } from "@/lib/gtag"
 
 const SOCIAL_ICONS = [
   {
@@ -99,8 +100,8 @@ export default function Footer() {
             Contacto
           </h3>
           <ul className="space-y-2 text-sm" style={{ color: "#D5D9F0" }}>
-            <li><a href={CONTACT.phoneHref} className="footer-link">{CONTACT.phoneDisplay}</a></li>
-            <li><a href={CONTACT.emailHref} className="footer-link">{CONTACT.email}</a></li>
+            <li><a href={CONTACT.phoneHref} className="footer-link" onClick={() => trackEvent("contact_phone", { source: "footer" })}>{CONTACT.phoneDisplay}</a></li>
+            <li><a href={CONTACT.emailHref} className="footer-link" onClick={() => trackEvent("contact_email", { source: "footer" })}>{CONTACT.email}</a></li>
             <li>{CONTACT.locationLabel}</li>
           </ul>
         </div>

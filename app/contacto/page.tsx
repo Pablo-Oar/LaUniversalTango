@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import ContactForm from "@/components/contact/ContactForm"
 import FAQ from "@/components/home/FAQ"
 import { CONTACT } from "@/data/contact"
+import TrackedLink from "@/components/analytics/TrackedLink"
 
 export const metadata: Metadata = {
   title: "Contacto",
@@ -34,9 +35,9 @@ export default function ContactoPage() {
             <div className="card">
               <h3 className="h3-display mb-4 text-lg">Contacto Directo</h3>
               <ul className="space-y-3 text-sm" style={{ color: "#D5D9F0" }}>
-                <li><a href={CONTACT.phoneHref}>{CONTACT.phoneDisplay}</a></li>
-                <li><a href={CONTACT.emailHref}>{CONTACT.email}</a></li>
-                <li><a href={CONTACT.whatsappHref} target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+                <li><TrackedLink event="contact_phone" eventParams={{ source: "contacto_page" }} href={CONTACT.phoneHref}>{CONTACT.phoneDisplay}</TrackedLink></li>
+                <li><TrackedLink event="contact_email" eventParams={{ source: "contacto_page" }} href={CONTACT.emailHref}>{CONTACT.email}</TrackedLink></li>
+                <li><TrackedLink event="contact_whatsapp" eventParams={{ source: "contacto_page" }} href={CONTACT.whatsappHref} target="_blank" rel="noopener noreferrer">WhatsApp</TrackedLink></li>
                 <li>{CONTACT.locationLabel}</li>
               </ul>
             </div>

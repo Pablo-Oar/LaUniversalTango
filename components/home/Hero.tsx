@@ -61,14 +61,15 @@ export default function Hero() {
 
       {/* DESKTOP: texto centrado verticalmente (fijo); botones posicionados aparte
           con "absolute" para poder moverlos sin que afecte la posición del texto. */}
-      <div className="hidden lg:flex site-container relative z-10 h-full min-h-[95vh] items-center pb-88">
-        <div className="-mt-52">
+      <div className="hidden lg:flex site-container relative z-10 h-full min-h-[95vh] flex-col justify-start pb-88">
+        {/* Distancia fija respecto al navbar, no depende del alto de la ventana */}
+        <div className="pt-[15px]">
           <Image
-            src={withBasePath("/images/logo/logo-blanco.png")}
+            src={withBasePath("/images/logo/logo-blanco-recortado.png")}
             alt="La Universal Tango"
-            width={340}
-            height={102}
-            className="w-auto h-[450px] mb-6"
+            width={2459}
+            height={1198}
+            className="w-auto h-[160px] mb-6"
           />
         </div>
       </div>

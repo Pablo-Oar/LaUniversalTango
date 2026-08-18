@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Playfair_Display, Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
@@ -6,6 +7,9 @@ import Footer from "@/components/layout/Footer";
 import WhatsAppButton from "@/components/layout/WhatsAppButton";
 import ScrollToTop from "@/components/layout/ScrollToTop";
 import MusicGroupSchema from "@/components/seo/MusicGroupSchema";
+
+// Google Analytics 4 — ID de medición de la propiedad "La Universal Tango"
+const GA_MEASUREMENT_ID = "G-SGBJES2HE1"
 
 /* ─────────────────────────────────────────────────────────────
    Tipografía — Playfair Display (títulos) + Inter (cuerpo)
@@ -82,6 +86,18 @@ export default function RootLayout({
       style={{ backgroundColor: "#050A2E" }}
     >
       <body className="min-h-full flex flex-col antialiased">
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="ga4-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_MEASUREMENT_ID}');
+          `}
+        </Script>
         <MusicGroupSchema />
         <ScrollToTop />
         <Navbar />

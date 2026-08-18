@@ -1,2 +1,2 @@
-:HL["/LaUniversalTango/_next/static/chunks/12wbbb3fzy~kx.css","style"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"/_not-found","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"Srg6wnGcRtx4r4-rTmtAU"}
+:HL["/LaUniversalTango/_next/static/chunks/03v2li3e3x~0s.css","style"]
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"/_not-found","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"S8z8fm7FAvnAMDJyOj7hl"}

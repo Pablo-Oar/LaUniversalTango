@@ -35,14 +35,14 @@ export default function Hero() {
       />
 
       {/* MOBILE: título arriba, botones abajo (justify-between) */}
-      <div className="site-container relative z-10 flex flex-col justify-between h-full -mt-[34px] pb-10 lg:hidden">
+      <div className="site-container relative z-10 flex flex-col justify-between h-full -mt-[10px] pb-10 lg:hidden">
         <div>
           <Image
             src={withBasePath("/images/logo/logo-negro.png")}
             alt="La Universal Tango"
             width={340}
             height={102}
-            className="w-auto h-[300px] mb-4"
+            className="w-auto max-w-[80vw] h-[clamp(150px,32vh,320px)] mb-4"
           />
         </div>
 

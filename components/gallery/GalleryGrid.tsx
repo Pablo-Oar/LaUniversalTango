@@ -1,10 +1,11 @@
 "use client"
 
 import Image from "next/image"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { GALLERY_PHOTOS, GALLERY_VIDEOS, GalleryCategory } from "@/data/gallery"
 import Lightbox from "@/components/gallery/Lightbox"
 import { withBasePath } from "@/lib/basePath"
+import { registerMedia, notifyPlaying } from "@/lib/mediaSync"
 
 const CATEGORIES: { key: GalleryCategory | "todos"; label: string }[] = [
   { key: "todos", label: "Todos" },
@@ -20,6 +21,13 @@ export default function GalleryGrid() {
   const [filter, setFilter] = useState<GalleryCategory | "todos">("todos")
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null)
   const [playingVideoId, setPlayingVideoId] = useState<string | null>(null)
+
+  // Mientras haya un video reproduciéndose acá, se registra en el coordinador
+  // compartido para que se pause si arranca otro video en cualquier parte de la página.
+  useEffect(() => {
+    if (!playingVideoId) return
+    return registerMedia(`gallery-grid-${playingVideoId}`, () => setPlayingVideoId(null))
+  }, [playingVideoId])
 
   const photos =
     filter === "todos"
@@ -104,7 +112,10 @@ export default function GalleryGrid() {
               <button
                 key={video.id}
                 type="button"
-                onClick={() => setPlayingVideoId(video.id)}
+                onClick={() => {
+                  notifyPlaying(`gallery-grid-${video.id}`)
+                  setPlayingVideoId(video.id)
+                }}
                 aria-label={`Reproducir video: ${video.title}`}
                 className="relative aspect-square overflow-hidden rounded-lg cursor-pointer group"
                 style={{ backgroundColor: "#1C2D78" }}

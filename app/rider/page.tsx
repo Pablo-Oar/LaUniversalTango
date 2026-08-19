@@ -1,5 +1,7 @@
 import type { Metadata } from "next"
 import Link from "next/link"
+import Image from "next/image"
+import { withBasePath } from "@/lib/basePath"
 
 export const metadata: Metadata = {
   title: "Rider Técnico",
@@ -47,24 +49,39 @@ export default function RiderPage() {
   return (
     <>
       {/* Presentación */}
-      <section className="bg-gradient-official section-py">
-        <div className="site-container max-w-3xl">
-          <p className="text-sm uppercase tracking-[0.2em] mb-4" style={{ color: "#B8B0F8" }}>
-            Requerimientos Técnicos
-          </p>
-          <h1 className="h1-display mb-6">Rider Técnico</h1>
-          <p style={{ color: "#D5D9F0" }}>
-            La Universal Tango está integrada por Piano, Contrabajo, Bandoneón, Violín
-            y Voz. A continuación detallamos los requerimientos técnicos de sonido e
-            infraestructura necesarios para garantizar una presentación de calidad.
-            Ante cualquier consulta o particularidad del venue, estamos disponibles
-            para coordinar los detalles junto al equipo técnico local.
-          </p>
-        </div>
+      <section className="relative py-0 lg:py-[100px] overflow-hidden lg:min-h-[80vh] flex items-center">
+        {/* Mobile: ancho completo, alto natural según la proporción de la imagen (sin recortar) */}
+        <Image
+          src={withBasePath("/images/hero/heroMobileRiderTecnico.jpg")}
+          alt=""
+          width={852}
+          height={1688}
+          priority
+          className="w-full h-auto block lg:hidden"
+        />
+        {/* Desktop */}
+        <Image
+          src={withBasePath("/images/hero/RiderTecnicoHero.jpg")}
+          alt=""
+          fill
+          sizes="100vw"
+          priority
+          className="object-cover hidden lg:block"
+          style={{ objectPosition: "50% 65%" }}
+        />
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(100deg, rgba(5,10,46,0.55) 0%, rgba(5,10,46,0.4) 40%, rgba(11,27,90,0.22) 100%)",
+          }}
+        />
+        {/* Título oculto visualmente: se saca el texto del hero pero se mantiene el h1 por SEO/accesibilidad */}
+        <h1 className="sr-only">Rider Técnico</h1>
       </section>
 
       {/* Requerimientos por instrumento */}
-      <section className="section-py" style={{ backgroundColor: "#0B1B5A" }}>
+      <section style={{ backgroundColor: "#0B1B5A", paddingTop: "50px", paddingBottom: "50px" }}>
         <div className="site-container max-w-3xl">
           <h2 className="h2-display mb-2">Sonido por Instrumento</h2>
           <p className="mb-10" style={{ color: "#D5D9F0" }}>

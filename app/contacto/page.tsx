@@ -38,7 +38,7 @@ export default function ContactoPage() {
                 <li><TrackedLink className="footer-link" event="contact_phone" eventParams={{ source: "contacto_page" }} href={CONTACT.phoneHref}>{CONTACT.phoneDisplay}</TrackedLink></li>
                 <li><TrackedLink className="footer-link" event="contact_email" eventParams={{ source: "contacto_page" }} href={CONTACT.emailHref}>{CONTACT.email}</TrackedLink></li>
                 <li><TrackedLink className="footer-link" event="contact_whatsapp" eventParams={{ source: "contacto_page" }} href={CONTACT.whatsappHref} target="_blank" rel="noopener noreferrer">WhatsApp</TrackedLink></li>
-                <li>{CONTACT.locationLabel}</li>
+                <li><span className="footer-link">{CONTACT.locationLabel}</span></li>
               </ul>
             </div>
             <div className="card member-card">

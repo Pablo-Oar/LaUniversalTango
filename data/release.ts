@@ -7,7 +7,7 @@
 export const LATEST_RELEASE = {
   albumTitle: "Próximamente",
   trackTitle: "Nuevo material en camino",
-  coverImage: "/images/gallery/loca-tour-2025.png",
+  coverImage: "/images/gallery/Giras%20Internacionales/loca-tour-2025.jpg",
   duration: "--:--",
   // TODO: reemplazar por los links reales cuando el cliente los envíe
   spotifyUrl: "",

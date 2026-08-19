@@ -6,7 +6,7 @@ import { withBasePath } from "@/lib/basePath"
 // Placeholders visuales hasta tener videos reales embebidos (data/gallery.ts → GALLERY_VIDEOS)
 const PLACEHOLDER_VIDEOS = [
   { id: "ph-1", title: "Video Próximamente", thumb: "/images/gallery/grupo-color-1.jpg" },
-  { id: "ph-2", title: "Video Próximamente", thumb: "/images/gallery/loca-tour-2025.png" },
+  { id: "ph-2", title: "Video Próximamente", thumb: "/images/gallery/Giras%20Internacionales/loca-tour-2025.jpg" },
   { id: "ph-3", title: "Video Próximamente", thumb: "/images/hero/grupo-principal.jpg" },
 ]
 
@@ -88,41 +88,56 @@ export default function VideoSection() {
           <div className="w-8 h-px mb-6" style={{ backgroundColor: "#FFFFFF" }} />
           <ul className="space-y-4">
             {(rest.length > 0 ? rest : PLACEHOLDER_VIDEOS).map((video) => {
-              const isReal = "youtubeId" in video
-              const thumbSrc = isReal
+              const isLocal = "localSrc" in video && Boolean(video.localSrc)
+              const isYoutube = "youtubeId" in video && Boolean(video.youtubeId)
+
+              const thumbSrc = isLocal
+                ? withBasePath((video as typeof GALLERY_VIDEOS[number]).poster!)
+                : isYoutube
                 ? `https://img.youtube.com/vi/${(video as typeof GALLERY_VIDEOS[number]).youtubeId}/mqdefault.jpg`
                 : withBasePath((video as typeof PLACEHOLDER_VIDEOS[number]).thumb)
-              const href = isReal
+
+              // Video local → lleva a reproducirlo en /galeria. YouTube → abre en YouTube.
+              const href = isLocal
+                ? withBasePath(`/galeria/#video-${video.id}`)
+                : isYoutube
                 ? `https://www.youtube.com/watch?v=${(video as typeof GALLERY_VIDEOS[number]).youtubeId}`
                 : CONTACT.social.youtube
+              const external = !isLocal
 
               return (
-                <li key={video.id} className="flex items-center gap-3">
-                  <div className="relative w-24 h-18 rounded overflow-hidden shrink-0" style={{ backgroundColor: "#050A2E" }}>
-                    <Image
-                      src={thumbSrc}
-                      alt={video.title}
-                      fill
-                      sizes="96px"
-                      className="object-cover"
-                      unoptimized={isReal}
-                    />
-                    <div className="absolute inset-0 flex items-center justify-center" style={{ backgroundColor: "rgba(5,10,46,0.35)" }}>
-                      <span style={{ color: "#FFFFFF", fontSize: "14px" }}>▶</span>
+                <li key={video.id}>
+                  <a
+                    href={href}
+                    target={external ? "_blank" : undefined}
+                    rel={external ? "noopener noreferrer" : undefined}
+                    className="flex items-center gap-3 group"
+                  >
+                    <div className="relative w-24 h-18 rounded overflow-hidden shrink-0" style={{ backgroundColor: "#050A2E" }}>
+                      <Image
+                        src={thumbSrc}
+                        alt={video.title}
+                        fill
+                        sizes="96px"
+                        className="object-cover transition-all duration-300 group-hover:scale-105 group-hover:blur-[2px]"
+                        unoptimized={isYoutube}
+                      />
+                      <div className="absolute inset-0 flex items-center justify-center" style={{ backgroundColor: "rgba(5,10,46,0.35)" }}>
+                        <span style={{ color: "#FFFFFF", fontSize: "14px" }}>▶</span>
+                      </div>
                     </div>
-                  </div>
-                  <div className="min-w-0">
-                    <p className="text-sm font-semibold truncate" style={{ color: "#FFFFFF" }}>{video.title}</p>
-                    <a
-                      href={href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-xs"
-                      style={{ color: "#B8B0F8" }}
-                    >
-                      Ver más
-                    </a>
-                  </div>
+                    <div className="min-w-0">
+                      <p
+                        className="text-sm font-semibold truncate transition-colors group-hover:text-white"
+                        style={{ color: "#FFFFFF" }}
+                      >
+                        {video.title}
+                      </p>
+                      <span className="text-xs" style={{ color: "#B8B0F8" }}>
+                        Ver más
+                      </span>
+                    </div>
+                  </a>
                 </li>
               )
             })}

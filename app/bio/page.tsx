@@ -106,7 +106,7 @@ export default function BioPage() {
           <h2 className="h2-display mb-10">Próximas Fechas</h2>
           <ul className="space-y-4">
             {CONCERTS.map((show) => (
-              <li key={show.id} className="card flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+              <li key={show.id} className="card member-card flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
                 <div>
                   <p className="font-semibold" style={{ color: "#FFFFFF" }}>{show.title}</p>
                   <p className="text-sm" style={{ color: "#D5D9F0" }}>
@@ -165,7 +165,7 @@ export default function BioPage() {
       </section>
 
       {/* Reconocimientos */}
-      <section className="section-py" style={{ backgroundColor: "#0B1B5A" }}>
+      <section style={{ backgroundColor: "#0B1B5A", paddingTop: "48px", paddingBottom: "48px" }}>
         <div className="site-container">
           <h2 className="h2-display mb-10">Reconocimientos</h2>
           {ACHIEVEMENTS.length === 0 ? (
@@ -190,7 +190,7 @@ export default function BioPage() {
                       href={item.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="card block h-full hover:opacity-90 transition-opacity"
+                      className="card press-card block h-full"
                     >
                       <p className="text-xs uppercase tracking-wider mb-2" style={{ color: "#B8B0F8" }}>
                         {item.outlet}

@@ -25,6 +25,7 @@ export default function GaleriaPage() {
 
       <section className="section-py" style={{ backgroundColor: "#0B1B5A" }}>
         <div className="site-container">
+          <h2 className="h2-display mb-10">Imágenes Destacadas</h2>
           <GalleryGrid />
         </div>
       </section>

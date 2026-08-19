@@ -32,7 +32,7 @@ const INSTRUMENT_REQUIREMENTS = [
 ]
 
 const STAGE_EQUIPMENT = [
-  "5 monitores de piso (side/front fill) para músicos y voz",
+  "3 a 5 monitores de piso (side/front fill) para músicos y voz",
   "Sistema de PA acorde a la capacidad del venue",
   "Consola de sonido con al menos 8 canales disponibles",
   "Técnico de sonido durante prueba de sonido y función",
@@ -82,11 +82,11 @@ export default function RiderPage() {
         </div>
       </section>
 
-      {/* Equipamiento de escenario */}
+      {/* Equipamiento de escenario + Coordinación */}
       <section className="section-py" style={{ backgroundColor: "#050A2E" }}>
         <div className="site-container max-w-3xl">
           <h2 className="h2-display mb-6">Escenario y Monitoreo</h2>
-          <ul className="space-y-3">
+          <ul className="space-y-3 mb-12">
             {STAGE_EQUIPMENT.map((item) => (
               <li key={item} className="text-sm flex items-start gap-3" style={{ color: "#D5D9F0" }}>
                 <span className="mt-1.5 w-1.5 h-1.5 rounded-full shrink-0" style={{ backgroundColor: "#6B5BE8" }} />
@@ -94,26 +94,17 @@ export default function RiderPage() {
               </li>
             ))}
           </ul>
-        </div>
-      </section>
 
-      {/* Nota */}
-      <section className="section-py" style={{ backgroundColor: "#0B1B5A" }}>
-        <div className="site-container max-w-3xl">
           <h2 className="h2-display mb-6">Coordinación</h2>
-          <p style={{ color: "#D5D9F0" }}>
+          <p className="mb-8" style={{ color: "#D5D9F0" }}>
             Este documento es una guía general y puede adaptarse según las
             características de cada venue o evento. Para coordinar el rider
             definitivo, el plano de escenario y los horarios de prueba de sonido,
             ponete en contacto con nosotros.
           </p>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="section-py text-center" style={{ backgroundColor: "#050A2E" }}>
-        <div className="site-container">
-          <Link href="/contacto" className="btn-primary">Contratar para un evento</Link>
+          <div className="text-center">
+            <Link href="/contacto" className="btn-primary">Contratar para un evento</Link>
+          </div>
         </div>
       </section>
     </>

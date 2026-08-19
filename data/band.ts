@@ -26,14 +26,14 @@ export const MEMBERS: Member[] = [
     name: "Gabriela Araujo",
     instrument: "Violín",
     bio: "",
-    photo: "/images/about/integrantes/gabriela.png",
+    photo: "/images/about/integrantes/Gabi.jpg",
   },
   {
     id: "piano",
     name: "Nicolás Rodríguez",
     instrument: "Piano",
     bio: "",
-    photo: "/images/about/integrantes/nicolas.png",
+    photo: "/images/about/integrantes/Nico.jpg",
   },
   {
     id: "contrabajo",

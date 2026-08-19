@@ -102,7 +102,7 @@ export default function Footer() {
           <ul className="space-y-2 text-sm" style={{ color: "#D5D9F0" }}>
             <li><a href={CONTACT.phoneHref} className="footer-link" onClick={() => trackEvent("contact_phone", { source: "footer" })}>{CONTACT.phoneDisplay}</a></li>
             <li><a href={CONTACT.emailHref} className="footer-link" onClick={() => trackEvent("contact_email", { source: "footer" })}>{CONTACT.email}</a></li>
-            <li>{CONTACT.locationLabel}</li>
+            <li><span className="footer-link">{CONTACT.locationLabel}</span></li>
           </ul>
         </div>
 
@@ -118,10 +118,12 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={social.label}
-                className="flex items-center justify-center w-10 h-10 rounded-full transition-colors"
-                style={{ border: "1px solid rgba(184,176,248,0.35)" }}
-                onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = social.color)}
-                onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "transparent")}
+                className="social-icon flex items-center justify-center w-10 h-10 rounded-full"
+                style={{
+                  border: "1px solid rgba(184,176,248,0.35)",
+                  backgroundColor: social.color,
+                  "--social-color": social.color,
+                } as React.CSSProperties}
               >
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="#F2F3FF">
                   <path d={social.path} />

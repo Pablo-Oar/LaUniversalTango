@@ -124,17 +124,6 @@ export default function ContactForm() {
         <textarea name="mensaje" required minLength={50} rows={5} className="form-field" />
       </div>
 
-      <div className="space-y-3">
-        <label className="flex items-center gap-3 text-sm" style={{ color: "#D5D9F0" }}>
-          <input name="acepto_terminos" type="checkbox" required />
-          Acepto términos y condiciones *
-        </label>
-        <label className="flex items-center gap-3 text-sm" style={{ color: "#D5D9F0" }}>
-          <input name="newsletter" type="checkbox" />
-          Quiero recibir el newsletter
-        </label>
-      </div>
-
       <button type="submit" disabled={status === "sending"} className="btn-primary">
         {status === "sending" ? "Enviando..." : "Enviar Mensaje"}
       </button>

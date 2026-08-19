@@ -31,6 +31,5 @@ export const CONTACT = {
   },
 
   /* ── Formspree ────────────────────────────────────────────── */
-  // TODO: reemplazar por el endpoint real cuando se cree la cuenta Formspree
-  formspreeEndpoint: "https://formspree.io/f/REEMPLAZAR_FORM_ID",
+  formspreeEndpoint: "https://formspree.io/f/xaewajzg",
 }

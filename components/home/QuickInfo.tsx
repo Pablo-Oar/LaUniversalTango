@@ -1,5 +1,6 @@
 import Link from "next/link"
 import Image from "next/image"
+import ParallaxImage from "@/components/ui/ParallaxImage"
 import { CONCERTS } from "@/data/concerts"
 import { LATEST_RELEASE } from "@/data/release"
 import { CONTACT } from "@/data/contact"
@@ -44,18 +45,19 @@ export default function QuickInfo() {
     >
       {/* Sobre Nosotros */}
       <div className="relative p-10 lg:p-12 flex flex-col overflow-hidden" style={{ backgroundColor: "#0B1B5A" }}>
-        <Image
-          src={withBasePath("/images/about/SobreNosotrosHome.png")}
+        <ParallaxImage
+          src={withBasePath("/images/about/fondoSobrenosotros.jpg")}
           alt=""
           fill
           sizes="(max-width: 1024px) 100vw, 33vw"
           className="object-cover"
+          scale={1.3}
         />
         <div
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(160deg, #0B1B5A 15%, rgba(11,27,90,0.75) 55%, rgba(11,27,90,0.55) 100%)",
+              "linear-gradient(160deg, #0B1B5A 5%, rgba(11,27,90,0.55) 55%, rgba(11,27,90,0.35) 100%)",
           }}
         />
         <div className="relative z-10 flex flex-col flex-1">

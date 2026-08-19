@@ -269,7 +269,7 @@ h1, h2, h3, h4 {
     padding: 3px 6px;
     margin: -3px -6px;
     border-radius: 4px;
-    background-image: linear-gradient(rgba(107, 91, 232, 0.25), rgba(107, 91, 232, 0.25));
+    background-image: linear-gradient(var(--footer-link-fill, rgba(107, 91, 232, 0.25)), var(--footer-link-fill, rgba(107, 91, 232, 0.25)));
     background-size: 0% 100%;
     background-repeat: no-repeat;
     background-position: left center;
@@ -290,6 +290,29 @@ h1, h2, h3, h4 {
     border-color: #B8B0F8;
     box-shadow: 0 12px 24px rgba(107, 91, 232, 0.35);
     transform: translateY(-4px);
+  }
+
+  /* Misma iluminación que .member-card, pero sin el levante (transform) */
+  .press-card {
+    transition: border-color 200ms ease, box-shadow 200ms ease;
+  }
+
+  .press-card:hover {
+    border-color: #B8B0F8;
+    box-shadow: 0 12px 24px rgba(107, 91, 232, 0.35);
+  }
+
+  /* Ícono de red social en el footer — color fijo, con glow del mismo color en hover/click */
+  .social-icon {
+    transition: box-shadow 200ms ease, transform 200ms ease;
+  }
+
+  .social-icon:hover,
+  .social-icon:focus-visible,
+  .social-icon:active {
+    box-shadow: 0 0 4px var(--social-color, rgba(184, 176, 248, 0.6)),
+      0 0 18px var(--social-color, rgba(184, 176, 248, 0.6));
+    transform: translateY(-2px);
   }
 
   /* Botón "Próximos Shows" del Hero en mobile — fondo claro fijo con su propio hover */

@@ -80,19 +80,11 @@ export default function QuickInfo() {
         style={{ backgroundColor: "#D9D6E8", borderLeft: "2px solid #B4A9A7" }}
       >
         <ParallaxImage
-          src={withBasePath("/images/inicio/fondo-lanzamiento-fechas-mobile.jpg")}
-          alt=""
-          fill
-          sizes="(max-width: 1024px) 100vw, 33vw"
-          className="object-cover block lg:hidden"
-          scale={1.3}
-        />
-        <ParallaxImage
           src={withBasePath("/images/inicio/fondo-lanzamiento-fechas-desktop.jpg")}
           alt=""
           fill
           sizes="(max-width: 1024px) 100vw, 33vw"
-          className="object-cover hidden lg:block"
+          className="object-cover"
           scale={1.3}
         />
         <h2 className="relative z-10 text-xl font-bold tracking-tight uppercase mb-1" style={{ color: "#FFFFFF" }}>
@@ -171,19 +163,11 @@ export default function QuickInfo() {
         style={{ backgroundColor: "#D9D6E8" }}
       >
         <ParallaxImage
-          src={withBasePath("/images/inicio/fondo-lanzamiento-fechas-mobile.jpg")}
-          alt=""
-          fill
-          sizes="(max-width: 1024px) 100vw, 40vw"
-          className="object-cover block lg:hidden"
-          scale={1.3}
-        />
-        <ParallaxImage
           src={withBasePath("/images/inicio/fondo-lanzamiento-fechas-desktop.jpg")}
           alt=""
           fill
           sizes="(max-width: 1024px) 100vw, 40vw"
-          className="object-cover hidden lg:block"
+          className="object-cover"
           scale={1.3}
         />
 
@@ -204,7 +188,7 @@ export default function QuickInfo() {
           {shows.map((show, i) => (
             <li
               key={show.id}
-              className="flex items-center justify-between gap-3 text-sm py-3"
+              className="flex items-center justify-between gap-3 text-sm py-3 px-3 -mx-3 rounded-md transition-colors duration-200 hover:bg-[rgba(184,176,248,0.1)] active:bg-[rgba(184,176,248,0.1)]"
               style={i > 0 ? { borderTop: "1px solid rgba(255,255,255,0.15)" } : undefined}
             >
               <div className="min-w-0 flex-1 grid grid-cols-1 sm:grid-cols-[95px_125px_1fr] gap-y-0.5 sm:gap-x-4 sm:items-center">

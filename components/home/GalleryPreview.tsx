@@ -37,7 +37,9 @@ export default function GalleryPreview() {
               type="button"
               onClick={() => setLightboxIndex(i)}
               aria-label={`Ver imagen: ${photo.title}`}
-              className="relative aspect-4/5 overflow-hidden cursor-zoom-in group"
+              className={`relative aspect-4/5 overflow-hidden cursor-zoom-in group transition-shadow duration-300 hover:shadow-[0_0_24px_8px_rgba(107,91,232,0.45)] ${
+                i === 4 ? "hidden sm:block" : ""
+              }`}
               style={{ backgroundColor: "#1C2D78", border: "0.5px solid #FFFFFF" }}
             >
               <Image

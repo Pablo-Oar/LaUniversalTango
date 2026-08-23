@@ -79,19 +79,21 @@ export default function QuickInfo() {
         className="relative p-10 lg:p-12 flex flex-col overflow-hidden"
         style={{ backgroundColor: "#D9D6E8", borderLeft: "2px solid #B4A9A7" }}
       >
-        <Image
+        <ParallaxImage
           src={withBasePath("/images/inicio/fondo-lanzamiento-fechas-mobile.jpg")}
           alt=""
           fill
           sizes="(max-width: 1024px) 100vw, 33vw"
           className="object-cover block lg:hidden"
+          scale={1.3}
         />
-        <Image
+        <ParallaxImage
           src={withBasePath("/images/inicio/fondo-lanzamiento-fechas-desktop.jpg")}
           alt=""
           fill
           sizes="(max-width: 1024px) 100vw, 33vw"
           className="object-cover hidden lg:block"
+          scale={1.3}
         />
         <h2 className="relative z-10 text-xl font-bold tracking-tight uppercase mb-1" style={{ color: "#FFFFFF" }}>
           Último Lanzamiento
@@ -168,19 +170,21 @@ export default function QuickInfo() {
         className="relative p-10 lg:p-12 flex flex-col overflow-hidden scroll-mt-[90px]"
         style={{ backgroundColor: "#D9D6E8" }}
       >
-        <Image
+        <ParallaxImage
           src={withBasePath("/images/inicio/fondo-lanzamiento-fechas-mobile.jpg")}
           alt=""
           fill
           sizes="(max-width: 1024px) 100vw, 40vw"
           className="object-cover block lg:hidden"
+          scale={1.3}
         />
-        <Image
+        <ParallaxImage
           src={withBasePath("/images/inicio/fondo-lanzamiento-fechas-desktop.jpg")}
           alt=""
           fill
           sizes="(max-width: 1024px) 100vw, 40vw"
           className="object-cover hidden lg:block"
+          scale={1.3}
         />
 
         {/* Línea divisoria — horizontal en mobile (columnas apiladas), vertical en desktop */}

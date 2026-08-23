@@ -90,8 +90,8 @@ export default function VideoSection() {
             Videos
           </h2>
           <div className="w-8 h-px mb-6" style={{ backgroundColor: "#FFFFFF" }} />
-          <ul className="space-y-4">
-            {(rest.length > 0 ? rest : PLACEHOLDER_VIDEOS).map((video) => {
+          <ul>
+            {(rest.length > 0 ? rest : PLACEHOLDER_VIDEOS).map((video, i) => {
               const isLocal = "localSrc" in video && Boolean(video.localSrc)
               const isYoutube = "youtubeId" in video && Boolean(video.youtubeId)
 
@@ -110,7 +110,11 @@ export default function VideoSection() {
               const external = !isLocal
 
               return (
-                <li key={video.id}>
+                <li
+                  key={video.id}
+                  className="py-2"
+                  style={i > 0 ? { borderTop: "1px solid rgba(255,255,255,0.12)" } : undefined}
+                >
                   <a
                     href={href}
                     target={external ? "_blank" : undefined}

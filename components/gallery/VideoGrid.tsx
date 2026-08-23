@@ -5,6 +5,10 @@ import { GALLERY_VIDEOS } from "@/data/gallery"
 import { withBasePath } from "@/lib/basePath"
 import { registerMedia, notifyPlaying } from "@/lib/mediaSync"
 
+// Videos que se muestran en "Videos Destacados" (los marcados hideFromFeatured
+// solo aparecen en la grilla filtrable de "Imágenes Destacadas")
+const FEATURED_VIDEOS = GALLERY_VIDEOS.filter((v) => !v.hideFromFeatured)
+
 /* ─────────────────────────────────────────────────────────────
    VIDEO GRID — Videos de "Videos Destacados" en /galeria.
    Se reproducen de forma exclusiva: al arrancar uno, se pausan
@@ -21,7 +25,7 @@ export default function VideoGrid() {
 
   // Registra cada reproductor en el coordinador compartido de la página
   useEffect(() => {
-    const unregisters = GALLERY_VIDEOS.map((video) =>
+    const unregisters = FEATURED_VIDEOS.map((video) =>
       registerMedia(`video-grid-${video.id}`, () => {
         const el = mediaRefs.current[video.id]
         if (!el) return
@@ -47,7 +51,7 @@ export default function VideoGrid() {
       }
       if (data.event !== "infoDelivery" || data.info?.playerState !== 1) return
 
-      const video = GALLERY_VIDEOS.find(
+      const video = FEATURED_VIDEOS.find(
         (v) => mediaRefs.current[v.id] instanceof HTMLIFrameElement && (mediaRefs.current[v.id] as HTMLIFrameElement).contentWindow === e.source
       )
       if (video) notifyPlaying(`video-grid-${video.id}`)
@@ -57,13 +61,13 @@ export default function VideoGrid() {
     return () => window.removeEventListener("message", onMessage)
   }, [])
 
-  if (GALLERY_VIDEOS.length === 0) {
+  if (FEATURED_VIDEOS.length === 0) {
     return <p style={{ color: "#D5D9F0" }}>Próximamente: videos de presentaciones.</p>
   }
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-      {GALLERY_VIDEOS.map((video) => (
+      {FEATURED_VIDEOS.map((video) => (
         <div key={video.id} id={`video-${video.id}`} className="scroll-mt-[90px]">
           <div className="relative aspect-video rounded-lg overflow-hidden mb-4" style={{ backgroundColor: "#1C2D78" }}>
             {video.localSrc ? (

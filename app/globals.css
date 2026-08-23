@@ -302,6 +302,31 @@ h1, h2, h3, h4 {
     box-shadow: 0 12px 24px rgba(107, 91, 232, 0.35);
   }
 
+  /* Chip de filtro (Galería: Todos / Conciertos / Giras / Festivales) */
+  .chip-filter {
+    background-color: transparent;
+    color: #D5D9F0;
+    border: 1px solid rgba(184, 176, 248, 0.3);
+    transition: background-color 200ms ease, border-color 200ms ease, color 200ms ease;
+  }
+
+  .chip-filter:hover {
+    background-color: rgba(184, 176, 248, 0.12);
+    border-color: #B8B0F8;
+    color: #FFFFFF;
+  }
+
+  .chip-filter.is-active {
+    background-color: #6B5BE8;
+    border-color: #6B5BE8;
+    color: #FFFFFF;
+  }
+
+  .chip-filter.is-active:hover {
+    background-color: #8B7AF5;
+    border-color: #8B7AF5;
+  }
+
   /* Ícono de red social en el footer — color fijo, con glow del mismo color en hover/click */
   .social-icon {
     transition: box-shadow 200ms ease, transform 200ms ease;

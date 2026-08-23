@@ -29,6 +29,7 @@ export type GalleryVideo = {
   localSrc?: string  // ruta a un video propio (mp4) dentro de /public
   poster?: string    // miniatura del video local
   category?: GalleryCategory // si se define, el video también aparece en la grilla de fotos filtrable
+  hideFromFeatured?: boolean // si es true, no se muestra en la sección "Videos Destacados"
 }
 
 export const GALLERY_PHOTOS: GalleryPhoto[] = [
@@ -335,6 +336,24 @@ export const GALLERY_VIDEOS: GalleryVideo[] = [
     localSrc: "/videos/tour-2025.mp4",
     poster: "/images/gallery/Giras%20Internacionales/tour-2025-portada.jpg",
     category: "giras",
+  },
+  {
+    id: "festival-video-1",
+    title: "Festival Tango Zwolle - Holanda",
+    description: "Momento en vivo durante el festival Tango Azul en Zwolle, Países Bajos.",
+    localSrc: "/videos/festival-zwolle-1.mp4",
+    poster: "/images/gallery/Festivales/festival-video-1-portada.jpg",
+    category: "festivales",
+    hideFromFeatured: true,
+  },
+  {
+    id: "festival-video-2",
+    title: "Festival Tango Zwolle - Holanda",
+    description: "Momento en vivo durante el festival Tango Azul en Zwolle, Países Bajos.",
+    localSrc: "/videos/festival-zwolle-2.mp4",
+    poster: "/images/gallery/Festivales/festival-video-2-portada.jpg",
+    category: "festivales",
+    hideFromFeatured: true,
   },
   // TODO: sumar más videos reales de YouTube (@launiversaltango)
 ]

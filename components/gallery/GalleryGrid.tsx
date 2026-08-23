@@ -51,7 +51,7 @@ export default function GalleryGrid() {
 
   const videos =
     filter === "todos"
-      ? []
+      ? GRID_VIDEOS
       : GRID_VIDEOS.filter((v) => v.category === filter)
 
   const isEmpty = photos.length === 0 && videos.length === 0
@@ -92,12 +92,7 @@ export default function GalleryGrid() {
           <button
             key={cat.key}
             onClick={() => changeFilter(cat.key)}
-            className="px-5 py-2 text-sm rounded-full transition-colors"
-            style={{
-              backgroundColor: filter === cat.key ? "#6B5BE8" : "transparent",
-              color: filter === cat.key ? "#FFFFFF" : "#D5D9F0",
-              border: "1px solid rgba(184,176,248,0.3)",
-            }}
+            className={`chip-filter px-5 py-2 text-sm rounded-full ${filter === cat.key ? "is-active" : ""}`}
           >
             {cat.label}
           </button>

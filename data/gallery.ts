@@ -320,6 +320,13 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
     description: "Momento en vivo durante el festival, Países Bajos.",
     src: "/images/gallery/Festivales/festival-17.jpg",
   },
+  {
+    id: "festival-18",
+    category: "festivales",
+    title: "Biblioteca de Zwolle",
+    description: "Festival Tango Azul en la Biblioteca de Zwolle, Países Bajos.",
+    src: "/images/gallery/Festivales/festival-18.jpg",
+  },
 ]
 
 export const GALLERY_VIDEOS: GalleryVideo[] = [

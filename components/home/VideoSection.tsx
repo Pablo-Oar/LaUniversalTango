@@ -1,4 +1,7 @@
+"use client"
+
 import Image from "next/image"
+import { useState } from "react"
 import { GALLERY_VIDEOS } from "@/data/gallery"
 import { CONTACT } from "@/data/contact"
 import { withBasePath } from "@/lib/basePath"
@@ -17,6 +20,7 @@ const PLACEHOLDER_VIDEOS = [
 export default function VideoSection() {
   const featured = GALLERY_VIDEOS[0]
   const rest = GALLERY_VIDEOS.slice(1, 4)
+  const [pressedId, setPressedId] = useState<string | null>(null)
 
   return (
     <section
@@ -111,7 +115,14 @@ export default function VideoSection() {
                     href={href}
                     target={external ? "_blank" : undefined}
                     rel={external ? "noopener noreferrer" : undefined}
-                    className="flex items-center gap-3 group"
+                    onTouchStart={() => setPressedId(video.id)}
+                    onTouchEnd={() => setPressedId(null)}
+                    onTouchCancel={() => setPressedId(null)}
+                    className={`flex items-center gap-3 py-2 px-3 -mx-3 rounded-xl border transition-colors duration-200 hover:bg-[rgba(184,176,248,0.1)] hover:border-[#B8B0F8] group ${
+                      pressedId === video.id
+                        ? "bg-[rgba(184,176,248,0.1)] border-[#B8B0F8]"
+                        : "border-transparent"
+                    }`}
                   >
                     <div className="relative w-24 h-18 rounded overflow-hidden shrink-0" style={{ backgroundColor: "#050A2E" }}>
                       <Image

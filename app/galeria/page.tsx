@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import GalleryGrid from "@/components/gallery/GalleryGrid"
 import VideoGrid from "@/components/gallery/VideoGrid"
+import { CONTACT } from "@/data/contact"
 
 export const metadata: Metadata = {
   title: "Galería",
@@ -34,6 +35,19 @@ export default function GaleriaPage() {
         <div className="site-container">
           <h2 className="h2-display mb-10">Videos Destacados</h2>
           <VideoGrid />
+          <div className="text-center mt-12">
+            <a
+              href={CONTACT.social.youtube}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-outline inline-flex items-center gap-2"
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#FF0000">
+                <path d="M21.6 7.2c-.2-1-1-1.8-2-2C17.9 4.8 12 4.8 12 4.8s-5.9 0-7.6.4c-1 .2-1.8 1-2 2C2 8.9 2 12 2 12s0 3.1.4 4.8c.2 1 1 1.8 2 2 1.7.4 7.6.4 7.6.4s5.9 0 7.6-.4c1-.2 1.8-1 2-2 .4-1.7.4-4.8.4-4.8s0-3.1-.4-4.8ZM10 15.2V8.8L15.5 12 10 15.2Z" />
+              </svg>
+              Ver Más Videos
+            </a>
+          </div>
         </div>
       </section>
     </>

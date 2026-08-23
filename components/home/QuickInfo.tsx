@@ -76,14 +76,28 @@ export default function QuickInfo() {
 
       {/* Último Lanzamiento */}
       <div
-        className="relative p-10 lg:p-12 flex flex-col"
+        className="relative p-10 lg:p-12 flex flex-col overflow-hidden"
         style={{ backgroundColor: "#D9D6E8", borderLeft: "2px solid #B4A9A7" }}
       >
-        <h2 className="text-xl font-bold tracking-tight uppercase mb-1" style={{ color: "#6B5BE8" }}>
+        <Image
+          src={withBasePath("/images/inicio/fondo-lanzamiento-fechas-mobile.jpg")}
+          alt=""
+          fill
+          sizes="(max-width: 1024px) 100vw, 33vw"
+          className="object-cover block lg:hidden"
+        />
+        <Image
+          src={withBasePath("/images/inicio/fondo-lanzamiento-fechas-desktop.jpg")}
+          alt=""
+          fill
+          sizes="(max-width: 1024px) 100vw, 33vw"
+          className="object-cover hidden lg:block"
+        />
+        <h2 className="relative z-10 text-xl font-bold tracking-tight uppercase mb-1" style={{ color: "#FFFFFF" }}>
           Último Lanzamiento
         </h2>
-        <div className="w-8 h-px mb-6" style={{ backgroundColor: "#6B5BE8" }} />
-        <div className="flex items-start gap-5 mb-6">
+        <div className="relative z-10 w-8 h-px mb-6" style={{ backgroundColor: "#FFFFFF" }} />
+        <div className="relative z-10 flex items-start gap-5 mb-6">
           <div className="relative w-32 h-44 rounded overflow-hidden shrink-0" style={{ backgroundColor: "#1C2D78" }}>
             <Image
               src={withBasePath(LATEST_RELEASE.coverImage)}
@@ -94,10 +108,10 @@ export default function QuickInfo() {
             />
           </div>
           <div className="min-w-0 flex-1">
-            <p className="text-lg font-bold uppercase tracking-tight truncate" style={{ color: "#050A2E" }}>
+            <p className="text-lg font-bold uppercase tracking-tight truncate" style={{ color: "#FFFFFF" }}>
               {LATEST_RELEASE.albumTitle}
             </p>
-            <p className="text-sm truncate mb-6" style={{ color: "#0B1B5A" }}>
+            <p className="text-sm truncate mb-6" style={{ color: "#D5D9F0" }}>
               {LATEST_RELEASE.trackTitle}
             </p>
 
@@ -109,15 +123,15 @@ export default function QuickInfo() {
               >
                 <span style={{ color: "#FFFFFF", fontSize: "14px", marginLeft: "2px" }}>▶</span>
               </div>
-              <div className="flex-1 h-1 rounded-full" style={{ backgroundColor: "rgba(11,27,90,0.15)" }}>
-                <div className="h-1 rounded-full" style={{ width: "0%", backgroundColor: "#6B5BE8" }} />
+              <div className="flex-1 h-1 rounded-full" style={{ backgroundColor: "rgba(255,255,255,0.2)" }}>
+                <div className="h-1 rounded-full" style={{ width: "0%", backgroundColor: "#B8B0F8" }} />
               </div>
-              <span className="text-xs shrink-0" style={{ color: "#0B1B5A" }}>{LATEST_RELEASE.duration}</span>
+              <span className="text-xs shrink-0" style={{ color: "#D5D9F0" }}>{LATEST_RELEASE.duration}</span>
             </div>
           </div>
         </div>
 
-        <div className="flex items-center gap-5 mt-auto">
+        <div className="relative z-10 flex items-center gap-5 mt-auto">
           {STREAMING_ICONS.map((s) =>
             s.url ? (
               <a
@@ -127,7 +141,7 @@ export default function QuickInfo() {
                 rel="noopener noreferrer"
                 aria-label={s.label}
                 className="flex items-center gap-1.5 text-xs font-semibold"
-                style={{ color: "#0B1B5A" }}
+                style={{ color: "#D5D9F0" }}
               >
                 <svg width="16" height="16" viewBox="0 0 24 24" fill={s.color}><path d={s.path} /></svg>
                 {s.label}
@@ -138,7 +152,7 @@ export default function QuickInfo() {
                 aria-label={`${s.label} (próximamente)`}
                 title="Próximamente"
                 className="flex items-center gap-1.5 text-xs font-semibold cursor-default"
-                style={{ color: "#0B1B5A" }}
+                style={{ color: "#D5D9F0" }}
               >
                 <svg width="16" height="16" viewBox="0 0 24 24" fill={s.color}><path d={s.path} /></svg>
                 {s.label}
@@ -151,35 +165,50 @@ export default function QuickInfo() {
       {/* Próximos Shows */}
       <div
         id="shows"
-        className="relative p-10 lg:p-12 flex flex-col scroll-mt-[90px]"
+        className="relative p-10 lg:p-12 flex flex-col overflow-hidden scroll-mt-[90px]"
         style={{ backgroundColor: "#D9D6E8" }}
       >
+        <Image
+          src={withBasePath("/images/inicio/fondo-lanzamiento-fechas-mobile.jpg")}
+          alt=""
+          fill
+          sizes="(max-width: 1024px) 100vw, 40vw"
+          className="object-cover block lg:hidden"
+        />
+        <Image
+          src={withBasePath("/images/inicio/fondo-lanzamiento-fechas-desktop.jpg")}
+          alt=""
+          fill
+          sizes="(max-width: 1024px) 100vw, 40vw"
+          className="object-cover hidden lg:block"
+        />
+
         {/* Línea divisoria — horizontal en mobile (columnas apiladas), vertical en desktop */}
         <div
-          className="block lg:hidden absolute top-0 left-10 right-10"
+          className="z-10 block lg:hidden absolute top-0 left-10 right-10"
           style={{ height: "2px", backgroundColor: "#B4A9A7" }}
         />
         <div
-          className="hidden lg:block absolute left-0 top-8 bottom-8"
+          className="z-10 hidden lg:block absolute left-0 top-8 bottom-8"
           style={{ width: "2px", backgroundColor: "#B4A9A7" }}
         />
-        <h2 className="text-xl font-bold tracking-tight uppercase mb-1" style={{ color: "#6B5BE8" }}>
+        <h2 className="relative z-10 text-xl font-bold tracking-tight uppercase mb-1" style={{ color: "#FFFFFF" }}>
           Próximos Shows
         </h2>
-        <div className="w-8 h-px mb-6" style={{ backgroundColor: "#6B5BE8" }} />
-        <ul className="mb-6">
+        <div className="relative z-10 w-8 h-px mb-6" style={{ backgroundColor: "#FFFFFF" }} />
+        <ul className="relative z-10 mb-6">
           {shows.map((show, i) => (
             <li
               key={show.id}
               className="flex items-center justify-between gap-3 text-sm py-3"
-              style={i > 0 ? { borderTop: "1px solid rgba(11,27,90,0.15)" } : undefined}
+              style={i > 0 ? { borderTop: "1px solid rgba(255,255,255,0.15)" } : undefined}
             >
               <div className="min-w-0 flex-1 grid grid-cols-1 sm:grid-cols-[95px_125px_1fr] gap-y-0.5 sm:gap-x-4 sm:items-center">
-                <p className="font-semibold" style={{ color: "#050A2E" }}>{show.date}</p>
-                <p className="text-xs font-bold uppercase tracking-wide" style={{ color: "#0B1B5A" }}>
+                <p className="font-semibold" style={{ color: "#FFFFFF" }}>{show.date}</p>
+                <p className="text-xs font-bold uppercase tracking-wide" style={{ color: "#B8B0F8" }}>
                   {show.city}
                 </p>
-                <p className="text-sm truncate" style={{ color: "#6B5B8F" }}>
+                <p className="text-sm truncate" style={{ color: "#D5D9F0" }}>
                   {show.venue}
                 </p>
               </div>
@@ -195,8 +224,7 @@ export default function QuickInfo() {
         </ul>
         <a
           href={withBasePath("/bio/#shows")}
-          className="btn-outline text-sm self-center mt-auto"
-          style={{ borderColor: "#6B5BE8", color: "#0B1B5A" }}
+          className="relative z-10 btn-outline text-sm self-center mt-auto"
         >
           Ver Todos los Shows
         </a>

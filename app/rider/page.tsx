@@ -49,25 +49,24 @@ export default function RiderPage() {
   return (
     <>
       {/* Presentación */}
-      <section className="relative py-0 lg:py-[100px] overflow-hidden lg:min-h-[80vh] flex items-center">
-        {/* Mobile: ancho completo, alto natural según la proporción de la imagen (sin recortar) */}
+      <section className="relative overflow-hidden min-h-[55vh] lg:min-h-0 lg:aspect-1672/941 flex items-center">
+        {/* Mobile */}
         <Image
-          src={withBasePath("/images/hero/heroMobileRiderTecnico.jpg")}
+          src={withBasePath("/images/hero/rider-tecnico-hero-mobile.jpg")}
           alt=""
-          width={852}
-          height={1688}
+          fill
+          sizes="100vw"
           priority
-          className="w-full h-auto block lg:hidden"
+          className="object-cover block lg:hidden"
         />
         {/* Desktop */}
         <Image
-          src={withBasePath("/images/hero/RiderTecnicoHero.jpg")}
+          src={withBasePath("/images/hero/rider-tecnico-hero-desktop.jpg")}
           alt=""
           fill
           sizes="100vw"
           priority
           className="object-cover hidden lg:block"
-          style={{ objectPosition: "50% 65%" }}
         />
         <div
           className="absolute inset-0"

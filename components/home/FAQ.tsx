@@ -5,11 +5,11 @@ import { useState } from "react"
 const FAQS = [
   {
     q: "¿Dónde se pueden ver nuestros conciertos?",
-    a: "Presentamos en teatros y festivales de tango en Argentina, Europa y Latinoamérica. Consulta la sección de conciertos o contáctanos para información sobre eventos próximos.",
+    a: "Podés vernos en las milongas, teatros y festivales de tango en Argentina, Europa y Latinoamérica. Consultá la sección de conciertos o contáctanos para información sobre eventos próximos.",
   },
   {
     q: "¿Cómo contratar al grupo para un evento?",
-    a: "Ofrecemos presentaciones para festivales, teatros y eventos corporativos. Contactanos directamente con detalles de tu evento (fecha, ubicación, tipo de presentación).",
+    a: "Ofrecemos diferentes presentaciones para cada espacio: milongas, festivales, salas de conciertos, teatros y eventos privados. Contactanos directamente con detalles de tu propuesta (fecha, ubicación, tipo de presentación).",
   },
   {
     q: "¿Tienen disponibilidad para conciertos privados?",
@@ -17,11 +17,11 @@ const FAQS = [
   },
   {
     q: "¿Ofrecen versiones acústicas o amplificadas?",
-    a: "Ofrecemos diferentes configuraciones según el venue. Trabajamos con teatros y salas para optimizar la acústica.",
+    a: "Ofrecemos diferentes configuraciones según el venue, tanto acústicas y/o amplificadas. Contactanos para analizar la mejor opción para tu espacio.",
   },
   {
     q: "¿Tienen material audiovisual profesional?",
-    a: "Sí, disponemos de videos de presentaciones, fotos profesionales y material promocional. Todo disponible en la galería.",
+    a: "Sí, disponemos de una carpeta con videos de presentaciones, fotos profesionales, logo y material promocional. Todo disponible para promocionar profesionalmente tus eventos.",
   },
 ]
 
@@ -35,7 +35,11 @@ export default function FAQ() {
 
         <div className="space-y-3">
           {FAQS.map((item, i) => (
-            <div key={item.q} className="card !p-0 overflow-hidden">
+            <div
+              key={item.q}
+              className="card !p-0 overflow-hidden"
+              style={openIndex === i ? { borderColor: "#FFFFFF" } : undefined}
+            >
               <button
                 className="w-full text-left px-6 py-5 flex justify-between items-center gap-4"
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}

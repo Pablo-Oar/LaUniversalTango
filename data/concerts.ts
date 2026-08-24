@@ -23,6 +23,14 @@ export const CONCERTS: Concert[] = [
     description: "Presentación en el Festival Seguime si Podés.",
   },
   {
+    id: "concert-1b",
+    date: "10 Sep 2026",
+    city: "Rosario, Santa Fe",
+    venue: "Gallo Rojo — Santa Fe 948",
+    title: "Presentación en Gallo Rojo",
+    description: "Concierto en Gallo Rojo, Rosario.",
+  },
+  {
     id: "concert-2",
     date: "26 Sep 2026",
     city: "Rosario, Santa Fe",

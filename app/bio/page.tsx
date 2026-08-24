@@ -16,8 +16,8 @@ export default function BioPage() {
   return (
     <>
       {/* Presentación */}
-      <section className="bg-gradient-official section-py">
-        <div className="site-container grid grid-cols-1 lg:grid-cols-5 gap-12 items-center">
+      <section className="bg-gradient-official pt-14 pb-0 lg:pt-[100px] lg:pb-[100px]">
+        <div className="site-container grid grid-cols-1 lg:grid-cols-5 gap-2 lg:gap-12 items-center">
           <div className="lg:col-span-3">
             <p className="text-sm uppercase tracking-[0.2em] mb-4" style={{ color: "#B8B0F8" }}>
               Sobre la Universal
@@ -43,8 +43,21 @@ export default function BioPage() {
               internacionales por diferentes partes del mundo.
             </p>
           </div>
+          {/* Mobile: foto recortada sin fondo, tamaño natural (sin franjas vacías) */}
+          <div className="lg:hidden -mt-4 -mx-5">
+            <Image
+              src={withBasePath("/images/bio/hero.png")}
+              alt="La Universal Tango - Piano, contrabajo, violín, bandoneón y voz"
+              width={1400}
+              height={933}
+              sizes="100vw"
+              className="w-full h-auto"
+              priority
+            />
+          </div>
+          {/* Desktop */}
           <div
-            className="lg:col-span-2 relative aspect-[4/5] rounded-lg overflow-hidden"
+            className="hidden lg:block lg:col-span-2 relative aspect-[4/5] rounded-lg overflow-hidden"
             style={{ backgroundColor: "#0B1B5A" }}
           >
             <ZoomableImage
@@ -72,9 +85,12 @@ export default function BioPage() {
           {MEMBERS.length === 0 ? (
             <p style={{ color: "#D5D9F0" }}>Próximamente: presentación de los integrantes del grupo.</p>
           ) : (
-            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-8">
+            <div className="flex flex-wrap justify-center gap-4 sm:gap-8">
               {MEMBERS.map((member) => (
-                <div key={member.id} className="card member-card overflow-hidden p-0 group">
+                <div
+                  key={member.id}
+                  className="card member-card overflow-hidden p-0 group w-[calc(50%-0.5rem)] md:w-[calc(33.333%-1.334rem)]"
+                >
                   <div className="relative aspect-4/5 max-w-32 sm:max-w-56 mx-auto mt-4 sm:mt-6 overflow-hidden rounded" style={{ backgroundColor: "#1C2D78" }}>
                     <Image
                       src={withBasePath(member.photo)}

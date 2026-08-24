@@ -124,9 +124,11 @@ export default function ContactForm() {
         <textarea name="mensaje" required minLength={50} rows={5} className="form-field" />
       </div>
 
-      <button type="submit" disabled={status === "sending"} className="btn-primary">
-        {status === "sending" ? "Enviando..." : "Enviar Mensaje"}
-      </button>
+      <div className="text-center">
+        <button type="submit" disabled={status === "sending"} className="btn-primary">
+          {status === "sending" ? "Enviando..." : "Enviar Mensaje"}
+        </button>
+      </div>
 
       {status === "error" && (
         <p className="text-sm" style={{ color: "#F87171" }}>

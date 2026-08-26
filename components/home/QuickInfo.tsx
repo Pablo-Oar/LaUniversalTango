@@ -1,3 +1,6 @@
+"use client"
+
+import { useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import ParallaxImage from "@/components/ui/ParallaxImage"
@@ -11,19 +14,15 @@ const STREAMING_ICONS = [
     label: "Spotify",
     url: LATEST_RELEASE.spotifyUrl,
     color: "#1DB954",
+    glow: "rgba(29,185,84,0.35)",
     path: "M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm4.34 14.4a.7.7 0 0 1-.96.24c-2.63-1.6-5.94-1.97-9.84-1.08a.7.7 0 1 1-.31-1.36c4.27-.97 7.93-.55 10.87 1.24.34.2.45.65.24.96Zm1.15-2.68a.86.86 0 0 1-1.18.29c-3-1.85-7.58-2.38-11.13-1.3a.86.86 0 1 1-.5-1.65c4.06-1.23 9.11-.64 12.52 1.47.4.25.53.78.29 1.19Zm.1-2.72c-3.6-2.14-9.53-2.34-12.96-1.29a1.03 1.03 0 1 1-.6-1.98c3.94-1.2 10.47-.96 14.6 1.48a1.03 1.03 0 1 1-1.04 1.79Z",
   },
   {
     label: "YouTube",
     url: CONTACT.social.youtube,
     color: "#FF0000",
+    glow: "rgba(255,0,0,0.35)",
     path: "M21.6 7.2c-.2-1-1-1.8-2-2C17.9 4.8 12 4.8 12 4.8s-5.9 0-7.6.4c-1 .2-1.8 1-2 2C2 8.9 2 12 2 12s0 3.1.4 4.8c.2 1 1 1.8 2 2 1.7.4 7.6.4 7.6.4s5.9 0 7.6-.4c1-.2 1.8-1 2-2 .4-1.7.4-4.8.4-4.8s0-3.1-.4-4.8ZM10 15.2V8.8L15.5 12 10 15.2Z",
-  },
-  {
-    label: "Apple Music",
-    url: LATEST_RELEASE.appleMusicUrl,
-    color: "#FA243C",
-    path: "M17.5 2h-11A4.5 4.5 0 0 0 2 6.5v11A4.5 4.5 0 0 0 6.5 22h11a4.5 4.5 0 0 0 4.5-4.5v-11A4.5 4.5 0 0 0 17.5 2Zm-1.2 5.1v6.85a2.1 2.1 0 1 1-1.3-1.94V8.7l-4.7 1.1v5.8a2.1 2.1 0 1 1-1.3-1.94V7.3a.65.65 0 0 1 .5-.63l6.2-1.45a.65.65 0 0 1 .8.63Z",
   },
 ]
 
@@ -33,7 +32,8 @@ const STREAMING_ICONS = [
    mockup oficial del cliente (EstructuraWeb.png).
    ───────────────────────────────────────────────────────────── */
 export default function QuickInfo() {
-  const shows = CONCERTS.slice(0, 3)
+  const shows = CONCERTS.slice(0, 4) // el 4to solo se muestra en desktop (ver className del <li>)
+  const [pressedIcon, setPressedIcon] = useState<string | null>(null)
 
   return (
     <section
@@ -70,14 +70,20 @@ export default function QuickInfo() {
             milongas tradicionales de la década del 40, en versiones originales
             con un sonido actual y poderoso.
           </p>
-          <Link href="/bio" className="btn-outline self-start mt-auto">Conocé Nuestra Historia</Link>
+          <Link
+            href="/bio"
+            className="btn-outline self-start mt-auto"
+            style={{ boxShadow: "0 0 40px rgba(0,0,0,1)" }}
+          >
+            Conocé Nuestra Historia
+          </Link>
         </div>
       </div>
 
       {/* Último Lanzamiento */}
       <div
         className="relative p-10 lg:p-12 flex flex-col overflow-hidden"
-        style={{ backgroundColor: "#D9D6E8", borderLeft: "2px solid #B4A9A7" }}
+        style={{ backgroundColor: "#D9D6E8" }}
       >
         <ParallaxImage
           src={withBasePath("/images/inicio/fondo-lanzamiento-fechas-desktop.jpg")}
@@ -86,6 +92,16 @@ export default function QuickInfo() {
           sizes="(max-width: 1024px) 100vw, 33vw"
           className="object-cover"
           scale={1.3}
+        />
+
+        {/* Línea divisoria — horizontal en mobile (columnas apiladas), vertical en desktop */}
+        <div
+          className="z-10 block lg:hidden absolute top-0 left-0 right-0"
+          style={{ height: "2px", backgroundColor: "#B4A9A7" }}
+        />
+        <div
+          className="z-10 hidden lg:block absolute left-0 top-0 bottom-0"
+          style={{ width: "2px", backgroundColor: "#B4A9A7" }}
         />
         <h2 className="relative z-10 text-xl font-bold tracking-tight uppercase mb-1" style={{ color: "#FFFFFF" }}>
           Último Lanzamiento
@@ -125,19 +141,32 @@ export default function QuickInfo() {
           </div>
         </div>
 
-        <div className="relative z-10 flex items-center gap-5 mt-auto">
-          {STREAMING_ICONS.map((s) =>
-            s.url ? (
+        <div className="relative z-10 flex items-center gap-8 mt-auto">
+          {STREAMING_ICONS.map((s) => {
+            const isPressed = pressedIcon === s.label
+            const iconClass = `flex items-center gap-2 text-sm font-semibold rounded-lg px-3 py-2 -mx-3 -my-2 transition-all duration-300 hover:bg-[var(--icon-glow)] hover:shadow-[0_0_24px_4px_var(--icon-glow)] ${
+              isPressed ? "bg-[var(--icon-glow)] shadow-[0_0_24px_4px_var(--icon-glow)]" : ""
+            }`
+            const iconStyle = { color: "#D5D9F0", "--icon-glow": s.glow } as React.CSSProperties
+            const icon = <svg width="22" height="22" viewBox="0 0 24 24" fill={s.color}><path d={s.path} /></svg>
+            const touchHandlers = {
+              onTouchStart: () => setPressedIcon(s.label),
+              onTouchEnd: () => setPressedIcon(null),
+              onTouchCancel: () => setPressedIcon(null),
+            }
+
+            return s.url ? (
               <a
                 key={s.label}
                 href={s.url}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={s.label}
-                className="flex items-center gap-1.5 text-xs font-semibold"
-                style={{ color: "#D5D9F0" }}
+                className={iconClass}
+                style={iconStyle}
+                {...touchHandlers}
               >
-                <svg width="16" height="16" viewBox="0 0 24 24" fill={s.color}><path d={s.path} /></svg>
+                {icon}
                 {s.label}
               </a>
             ) : (
@@ -145,14 +174,15 @@ export default function QuickInfo() {
                 key={s.label}
                 aria-label={`${s.label} (próximamente)`}
                 title="Próximamente"
-                className="flex items-center gap-1.5 text-xs font-semibold cursor-default"
-                style={{ color: "#D5D9F0" }}
+                className={`${iconClass} cursor-default`}
+                style={iconStyle}
+                {...touchHandlers}
               >
-                <svg width="16" height="16" viewBox="0 0 24 24" fill={s.color}><path d={s.path} /></svg>
+                {icon}
                 {s.label}
               </span>
             )
-          )}
+          })}
         </div>
       </div>
 
@@ -173,11 +203,11 @@ export default function QuickInfo() {
 
         {/* Línea divisoria — horizontal en mobile (columnas apiladas), vertical en desktop */}
         <div
-          className="z-10 block lg:hidden absolute top-0 left-10 right-10"
+          className="z-10 block lg:hidden absolute top-0 left-0 right-0"
           style={{ height: "2px", backgroundColor: "#B4A9A7" }}
         />
         <div
-          className="z-10 hidden lg:block absolute left-0 top-8 bottom-8"
+          className="z-10 hidden lg:block absolute left-0 top-0 bottom-0"
           style={{ width: "2px", backgroundColor: "#B4A9A7" }}
         />
         <h2 className="relative z-10 text-xl font-bold tracking-tight uppercase mb-1" style={{ color: "#FFFFFF" }}>
@@ -188,7 +218,9 @@ export default function QuickInfo() {
           {shows.map((show, i) => (
             <li
               key={show.id}
-              className="flex items-center justify-between gap-3 text-sm py-3 px-3 -mx-3 rounded-md transition-colors duration-200 hover:bg-[rgba(184,176,248,0.1)] active:bg-[rgba(184,176,248,0.1)]"
+              className={`items-center justify-between gap-3 text-sm py-3 px-3 -mx-3 rounded-md transition-colors duration-200 hover:bg-[rgba(184,176,248,0.1)] active:bg-[rgba(184,176,248,0.1)] ${
+                i === 3 ? "hidden lg:flex" : "flex"
+              }`}
               style={i > 0 ? { borderTop: "1px solid rgba(255,255,255,0.15)" } : undefined}
             >
               <div className="min-w-0 flex-1 grid grid-cols-1 sm:grid-cols-[95px_125px_1fr] gap-y-0.5 sm:gap-x-4 sm:items-center">
@@ -213,6 +245,7 @@ export default function QuickInfo() {
         <a
           href={withBasePath("/bio/#shows")}
           className="relative z-10 btn-outline text-sm self-center mt-auto"
+          style={{ boxShadow: "0 0 40px rgba(0,0,0,1)" }}
         >
           Ver Todos los Shows
         </a>

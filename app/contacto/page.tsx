@@ -1,8 +1,10 @@
 import type { Metadata } from "next"
+import Image from "next/image"
 import ContactForm from "@/components/contact/ContactForm"
 import FAQ from "@/components/home/FAQ"
 import { CONTACT } from "@/data/contact"
 import TrackedLink from "@/components/analytics/TrackedLink"
+import { withBasePath } from "@/lib/basePath"
 
 export const metadata: Metadata = {
   title: "Contacto",
@@ -43,11 +45,33 @@ function IconBadge({ color, path, viewBox = "0 0 24 24" }: { color: string; path
 export default function ContactoPage() {
   return (
     <>
-      <section className="bg-gradient-official section-py">
-        <div className="site-container max-w-2xl">
-          <p className="text-sm uppercase tracking-[0.2em] mb-4" style={{ color: "#B8B0F8" }}>
-            Contacto
-          </p>
+      <section className="relative overflow-hidden min-h-[45vh] lg:aspect-1672/780 flex items-end">
+        {/* Mobile */}
+        <Image
+          src={withBasePath("/images/contact/hero.jpg")}
+          alt=""
+          fill
+          sizes="100vw"
+          priority
+          className="object-cover block lg:hidden"
+        />
+        {/* Desktop: versión recortada (menos alta) */}
+        <Image
+          src={withBasePath("/images/contact/hero-desktop.jpg")}
+          alt=""
+          fill
+          sizes="100vw"
+          priority
+          className="object-cover hidden lg:block"
+        />
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(100deg, rgba(5,10,46,0.85) 0%, rgba(5,10,46,0.6) 40%, rgba(11,27,90,0.3) 100%)",
+          }}
+        />
+        <div className="site-container relative z-10 max-w-2xl pb-6">
           <h1 className="h1-display mb-4">Hablemos de tu Evento</h1>
           <p style={{ color: "#D5D9F0" }}>
             Contactanos para conciertos, festivales y eventos. Respondemos en 24 horas.

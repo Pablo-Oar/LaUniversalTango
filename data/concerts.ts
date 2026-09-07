@@ -64,7 +64,7 @@ export const CONCERTS: Concert[] = [
   },
   {
     id: "concert-6",
-    date: "8 Nov 2026",
+    date: "7 Nov 2026",
     city: "San Rafael, Mendoza",
     venue: "Milonga El Arranque",
     title: "Milonga El Arranque",

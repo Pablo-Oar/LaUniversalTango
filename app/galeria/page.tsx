@@ -1,7 +1,9 @@
 import type { Metadata } from "next"
+import Image from "next/image"
 import GalleryGrid from "@/components/gallery/GalleryGrid"
 import VideoGrid from "@/components/gallery/VideoGrid"
 import { CONTACT } from "@/data/contact"
+import { withBasePath } from "@/lib/basePath"
 
 export const metadata: Metadata = {
   title: "Galería",
@@ -12,11 +14,23 @@ export const metadata: Metadata = {
 export default function GaleriaPage() {
   return (
     <>
-      <section className="bg-gradient-official section-py">
-        <div className="site-container max-w-2xl">
-          <p className="text-sm uppercase tracking-[0.2em] mb-4" style={{ color: "#B8B0F8" }}>
-            Galería
-          </p>
+      <section className="relative overflow-hidden min-h-[45vh] lg:aspect-1920/1322 flex items-end">
+        <Image
+          src={withBasePath("/images/gallery/universal.jpg")}
+          alt=""
+          fill
+          sizes="100vw"
+          priority
+          className="object-cover"
+        />
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(100deg, rgba(5,10,46,0.85) 0%, rgba(5,10,46,0.6) 40%, rgba(11,27,90,0.3) 100%)",
+          }}
+        />
+        <div className="site-container relative z-10 max-w-2xl pb-4">
           <h1 className="h1-display mb-4">Momentos en Escena</h1>
           <p style={{ color: "#D5D9F0" }}>
             Fotos y videos de nuestras presentaciones, giras y festivales.

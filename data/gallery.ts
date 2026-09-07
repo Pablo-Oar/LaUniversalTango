@@ -140,7 +140,7 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
     id: "ga-stuttgart",
     category: "conciertos",
     title: "Stuttgart",
-    description: "Integrante del grupo en Stuttgart, Alemania.",
+    description: "Ga Araujo en Stuttgart - Alemania",
     src: "/images/gallery/Conciertos/ga-stuttgart.jpg",
   },
   {

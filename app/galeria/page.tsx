@@ -14,14 +14,25 @@ export const metadata: Metadata = {
 export default function GaleriaPage() {
   return (
     <>
-      <section className="relative overflow-hidden min-h-[45vh] lg:aspect-1920/1322 flex items-end">
+      <section className="relative overflow-hidden min-h-[45vh] lg:aspect-1920/750 flex items-end">
+        {/* Mobile */}
+        <Image
+          src={withBasePath("/images/gallery/grupo-color-1.jpg")}
+          alt=""
+          fill
+          sizes="100vw"
+          priority
+          className="object-cover block lg:hidden"
+        />
+        {/* Desktop: ancla arriba para no cortar las cabezas */}
         <Image
           src={withBasePath("/images/gallery/universal.jpg")}
           alt=""
           fill
           sizes="100vw"
           priority
-          className="object-cover"
+          className="object-cover hidden lg:block"
+          style={{ objectPosition: "50% 0%" }}
         />
         <div
           className="absolute inset-0"

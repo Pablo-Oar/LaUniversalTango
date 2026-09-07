@@ -10,6 +10,7 @@ import { withBasePath } from "@/lib/basePath"
 export default function GalleryPreview() {
   const photos = GALLERY_PHOTOS.slice(0, 5)
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null)
+  const [pressedId, setPressedId] = useState<string | null>(null)
 
   return (
     <section
@@ -36,10 +37,14 @@ export default function GalleryPreview() {
               key={photo.id}
               type="button"
               onClick={() => setLightboxIndex(i)}
+              onTouchStart={() => {
+                setPressedId(photo.id)
+                window.setTimeout(() => setPressedId((current) => (current === photo.id ? null : current)), 400)
+              }}
               aria-label={`Ver imagen: ${photo.title}`}
-              className={`relative aspect-4/5 overflow-hidden cursor-zoom-in group transition-shadow duration-300 hover:shadow-[0_0_24px_8px_rgba(107,91,232,0.45)] ${
-                i === 4 ? "hidden sm:block" : ""
-              }`}
+              className={`relative aspect-4/5 overflow-hidden cursor-zoom-in group hover:shadow-[0_0_24px_8px_rgba(107,91,232,0.45)] transition-shadow ${
+                pressedId === photo.id ? "shadow-[0_0_24px_8px_rgba(107,91,232,0.45)] duration-0" : "duration-300"
+              } ${i === 4 ? "hidden sm:block" : ""}`}
               style={{ backgroundColor: "#1C2D78", border: "0.5px solid #FFFFFF" }}
             >
               <Image
@@ -47,7 +52,9 @@ export default function GalleryPreview() {
                 alt={photo.title}
                 fill
                 sizes="(max-width: 768px) 50vw, 20vw"
-                className="object-cover transition-transform duration-300 group-hover:scale-105"
+                className={`object-cover transition-transform duration-300 group-hover:scale-105 ${
+                  pressedId === photo.id ? "scale-105" : ""
+                }`}
               />
             </button>
           ))}

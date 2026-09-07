@@ -45,19 +45,19 @@ function IconBadge({ color, path, viewBox = "0 0 24 24" }: { color: string; path
 export default function ContactoPage() {
   return (
     <>
-      <section className="relative overflow-hidden min-h-[45vh] lg:aspect-1672/780 flex items-end">
+      <section className="relative overflow-hidden min-h-[45vh] lg:aspect-1920/729 flex items-end">
         {/* Mobile */}
         <Image
-          src={withBasePath("/images/contact/hero.jpg")}
+          src={withBasePath("/images/contact/hero-mobile.jpg")}
           alt=""
           fill
           sizes="100vw"
           priority
           className="object-cover block lg:hidden"
         />
-        {/* Desktop: versión recortada (menos alta) */}
+        {/* Desktop */}
         <Image
-          src={withBasePath("/images/contact/hero-desktop.jpg")}
+          src={withBasePath("/images/gallery/Conciertos/en-vivo-casa-brava2.jpg")}
           alt=""
           fill
           sizes="100vw"
@@ -71,10 +71,23 @@ export default function ContactoPage() {
               "linear-gradient(100deg, rgba(5,10,46,0.85) 0%, rgba(5,10,46,0.6) 40%, rgba(11,27,90,0.3) 100%)",
           }}
         />
-        <div className="site-container relative z-10 max-w-2xl pb-6">
+        {/* Mobile: título arriba, cerca del navbar */}
+        <div className="site-container absolute top-6 left-0 right-0 z-10 max-w-2xl lg:hidden">
+          <h1 className="h1-display">Hablemos de tu Evento</h1>
+        </div>
+
+        {/* Desktop: título + descripción juntos, al pie */}
+        <div className="site-container relative z-10 max-w-2xl pb-6 hidden lg:block">
           <h1 className="h1-display mb-4">Hablemos de tu Evento</h1>
           <p style={{ color: "#D5D9F0" }}>
-            Contactanos para conciertos, festivales y eventos. Respondemos en 24 horas.
+            Contactanos para conciertos, festivales y eventos.
+          </p>
+        </div>
+
+        {/* Mobile: descripción al pie de la imagen */}
+        <div className="site-container relative z-10 max-w-2xl pb-6 lg:hidden">
+          <p style={{ color: "#D5D9F0" }}>
+            Contactanos para conciertos, festivales y eventos.
           </p>
         </div>
       </section>
